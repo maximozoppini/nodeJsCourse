@@ -20,10 +20,10 @@ class Contenedor{
             }
 
             if(datosJson.length > 0){
-                objetoAGuardar.id = datosJson.length;  
+                objetoAGuardar.id = datosJson.length + 1;  
             }
             else{
-                objetoAGuardar.id = 0;
+                objetoAGuardar.id = 1;
             }
 
             datosJson = [...datosJson,objetoAGuardar];
@@ -87,7 +87,7 @@ class Contenedor{
             if(cantidad != datosJson.length)
             {
                 datosJson.forEach((objeto,index) =>{
-                    objeto.id = index;
+                    objeto.id = index + 1;
                 });
             }
 
@@ -135,13 +135,13 @@ async function test(){
         
         console.log("los ids creados son: ",[primerProducto, segundoProducto, tercerproducto]);
 
-        let busquedaMouse = await contenedorProducto.getById(1);
+        let busquedaMouse = await contenedorProducto.getById(2);
         console.log(`Se intento buscar el producto Mouse:`,busquedaMouse);
 
         let buscarTodos = await contenedorProducto.getAll();
         console.log(`todos los productos:`, buscarTodos);
         
-        await contenedorProducto.deleteById(0);
+        await contenedorProducto.deleteById(1);
         console.log("se elimino el producto teclado: ",await contenedorProducto.getAll());
 
         await contenedorProducto.deleteAll();
