@@ -1,0 +1,16 @@
+{
+  "contenidoStr": "{\n  \"name\": \"ejerciciosclase\",\n  \"version\": \"1.0.0\",\n  \"description\": \"\",\n  \"main\": \"desafioGenerico_archivos_funcionesCallBacks.js\",\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"keywords\": [],\n  \"author\": \"\",\n  \"license\": \"ISC\"\n}\n",
+  "contenidoObj": {
+    "name": "ejerciciosclase",
+    "version": "1.0.0",
+    "description": "",
+    "main": "desafioGenerico_archivos_funcionesCallBacks.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  },
+  "size": 267
+}
