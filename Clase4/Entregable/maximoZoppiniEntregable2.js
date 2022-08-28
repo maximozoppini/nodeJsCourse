@@ -12,8 +12,8 @@ class Contenedor{
     async save(objetoAGuardar) {
         try {
             //leo el archivo
-            let datos = await fs.promises.readFile(this.nombreArchivo);
-            let datosJson = Array.from(JSON.parse(datos));
+            let datosAlmacenados = await this.getAll();
+            let datosJson = Array.from(datosAlmacenados);
 
             if(!datosJson){
                 throw new Error("el archivo no tiene el formato valido");
@@ -40,19 +40,10 @@ class Contenedor{
 
     async getById(id){
         try {
-            let datosAlmacenados = await fs.promises.readFile(this.nombreArchivo);
-            if(!datosAlmacenados){
-                return null;
-            }
-            let objetosAlmacenados = JSON.parse(datosAlmacenados);
-            let objetoEncontrado = null;
-            objetosAlmacenados.forEach(objeto => {
-                if(objeto.id === id)
-                {
-                    objetoEncontrado = objeto;
-                }
-            });
-            return objetoEncontrado;
+            let datosAlmacenados = await this.getAll();
+
+            let datosJson = Array.from(datosAlmacenados);
+            return datosJson.find(objeto => objeto.id === id);
         } catch (error) {
             throw new Error(error);
         }
@@ -72,11 +63,9 @@ class Contenedor{
 
     async deleteById(id){
         try {
-            let datosAlmacenados = await fs.promises.readFile(this.nombreArchivo);
-            if(!datosAlmacenados){
-                return null;
-            }
-            let datosJson = Array.from(JSON.parse(datosAlmacenados));
+            let datosAlmacenados = await this.getAll();
+
+            let datosJson = Array.from(datosAlmacenados);
             //guardo la cantidad previamente a la potencial eliminacion para saber si debo recalcular los IDs
             const cantidad = datosJson.length;
 
@@ -100,10 +89,6 @@ class Contenedor{
 
     async deleteAll(){
         try {
-            let datosAlmacenados = await fs.promises.readFile(this.nombreArchivo);
-            if(!datosAlmacenados){
-                return null;
-            }
             await fs.promises.writeFile(this.nombreArchivo,JSON.stringify([],null,2));
         } catch (error) {
             throw new Error(error);
@@ -137,6 +122,9 @@ async function test(){
 
         let busquedaMouse = await contenedorProducto.getById(2);
         console.log(`Se intento buscar el producto Mouse:`,busquedaMouse);
+
+        let busquedaProductoInexistente = await contenedorProducto.getById(10);
+        console.log(`Se intento buscar el producto que no existe:`,busquedaProductoInexistente);
 
         let buscarTodos = await contenedorProducto.getAll();
         console.log(`todos los productos:`, buscarTodos);
