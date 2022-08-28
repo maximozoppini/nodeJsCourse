@@ -1,5 +1,3 @@
-const { throws } = require("assert");
-const { count } = require("console");
 const fs = require("fs");
 
 class Contenedor{
