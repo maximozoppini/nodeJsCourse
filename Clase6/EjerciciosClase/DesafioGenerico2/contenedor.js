@@ -95,46 +95,5 @@ class Contenedor{
 
 }
 
+module.exports = {Contenedor};
 
-async function test(){
-    try {
-        const contenedorProducto = new Contenedor("productos.txt");
-
-        let primerProducto = await contenedorProducto.save({
-            title: "teclado",
-            price: 23,
-            thumbnail: "http://google.com"
-            });
-        let segundoProducto = await contenedorProducto.save({
-            title: "mouse",
-            price: 50,
-            thumbnail: "http://google.com"
-            });
-        let tercerproducto = await contenedorProducto.save({
-            title: "monitor",
-            price: 1500,
-            thumbnail: "http://google.com"
-            }); 
-        
-        console.log("los ids creados son: ",[primerProducto, segundoProducto, tercerproducto]);
-
-        let busquedaMouse = await contenedorProducto.getById(2);
-        console.log(`Se intento buscar el producto Mouse:`,busquedaMouse);
-
-        let busquedaProductoInexistente = await contenedorProducto.getById(10);
-        console.log(`Se intento buscar el producto que no existe:`,busquedaProductoInexistente);
-
-        let buscarTodos = await contenedorProducto.getAll();
-        console.log(`todos los productos:`, buscarTodos);
-        
-        await contenedorProducto.deleteById(1);
-        console.log("se elimino el producto teclado: ",await contenedorProducto.getAll());
-
-        await contenedorProducto.deleteAll();
-        console.log("se eliminaron todos los productos", await contenedorProducto.getAll());
-
-    } catch (error) {
-        console.log(error);
-    }   
-}
-test();
