@@ -4,7 +4,24 @@ class Contenedor{
 
     constructor(nombreArchivo){
         this.nombreArchivo = nombreArchivo;
-        fs.writeFileSync(this.nombreArchivo,JSON.stringify([],null,2));
+        this.lastId = 1; 
+        if (fs.existsSync(this.nombreArchivo))
+        {
+            const data = JSON.parse(fs.readFileSync(this.nombreArchivo));
+            const dataArray = Array.from(data);
+            if(dataArray.length > 0){
+                let max = dataArray[0].id;
+                for (let i = 0; i < dataArray.length; i++) {
+                    if (dataArray[i].id > max) {
+                        max = dataArray[i].id;
+                    }
+                }
+                this.lastId = max + 1;
+            }
+        }
+        else{
+            fs.writeFileSync(this.nombreArchivo,JSON.stringify([],null,2));
+        }
     }
 
     async save(objetoAGuardar) {
@@ -16,19 +33,13 @@ class Contenedor{
             if(!datosJson){
                 throw new Error("el archivo no tiene el formato valido");
             }
-
-            if(datosJson.length > 0){
-                objetoAGuardar.id = datosJson.length + 1;  
-            }
-            else{
-                objetoAGuardar.id = 1;
-            }
-
+            objetoAGuardar.id = this.lastId;
             datosJson = [...datosJson,objetoAGuardar];
 
             //guardo en el archivo el arreglo de elementos.
             await fs.promises.writeFile(this.nombreArchivo,JSON.stringify(datosJson,null,2));
-
+            
+            this.lastId++;
             return objetoAGuardar.id;
 
         } catch (error) {
@@ -61,21 +72,10 @@ class Contenedor{
     async deleteById(id){
         try {
             let datosAlmacenados = await this.getAll();
-
             let datosJson = Array.from(datosAlmacenados);
-            //guardo la cantidad previamente a la potencial eliminacion para saber si debo recalcular los IDs
-            const cantidad = datosJson.length;
 
             //si encuentro el objeto lo elimino
             datosJson = [...datosJson.filter(dato => dato.id !== id)];
-
-            //si la cantida difiere, un elemento se elimino y debo recalcular los ids
-            if(cantidad != datosJson.length)
-            {
-                datosJson.forEach((objeto,index) =>{
-                    objeto.id = index + 1;
-                });
-            }
 
             await fs.promises.writeFile(this.nombreArchivo,JSON.stringify(datosJson,null,2));
 
@@ -86,6 +86,7 @@ class Contenedor{
 
     async deleteAll(){
         try {
+            this.lastId = 1;
             await fs.promises.writeFile(this.nombreArchivo,JSON.stringify([],null,2));
         } catch (error) {
             throw new Error(error);
@@ -126,8 +127,16 @@ async function test(){
         let buscarTodos = await contenedorProducto.getAll();
         console.log(`todos los productos:`, buscarTodos);
         
-        await contenedorProducto.deleteById(1);
+        await contenedorProducto.deleteById(2);
         console.log("se elimino el producto teclado: ",await contenedorProducto.getAll());
+        
+        let productoLuegoDeEliminar = await contenedorProducto.save({
+            title: "NUEVO PRODUCTO LUEGO DE ELIMINAR",
+            price: 20,
+            thumbnail: "http://google.com"
+            }); 
+        
+        console.log("se agrego un nuevo producto luego de eliminar: ",await contenedorProducto.getAll());
 
         await contenedorProducto.deleteAll();
         console.log("se eliminaron todos los productos", await contenedorProducto.getAll());
