@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entregable 6 - Maximo Zoppini</title>
+  </head>
+
+  <body>
+    <div class="container"></div>
+    <main>
+      <div class="container pt-5">
+        <h1>Entregable 6 - Maximo Zoppini</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Nuevo producto</h2>
+            <form #form="ngForm" [formGroup]="productoForm" class="form">
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input
+                      matInput
+                      formControlName="title"
+                      placeholder="Ingrese el nombre"
+                    />
+                    <mat-error
+                      *ngIf="
+                        productoForm.controls['title'].hasError('required')
+                      "
+                      >Campo requerido</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Precio</mat-label>
+                    <input
+                      matInput
+                      min="0"
+                      type="number"
+                      formControlName="price"
+                      placeholder="Ingrese el precio"
+                    />
+                    <mat-error
+                      *ngIf="
+                        productoForm.controls['price'].hasError('required')
+                      "
+                      >Campo requerido</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Thumbnail</mat-label>
+                    <input
+                      matInput
+                      formControlName="thumbnail"
+                      placeholder="Ingrese la url de la imagen"
+                    />
+                    <mat-error
+                      *ngIf="
+                        productoForm.controls['thumbnail'].hasError('required')
+                      "
+                      >Campo requerido</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-4">
+                  <button
+                    (click)="enviarForm()"
+                    [disabled]="!productoForm.valid"
+                    mat-raised-button
+                    class="float-end"
+                    color="primary"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col">
+                <table
+                  mat-table
+                  [dataSource]="productos"
+                  class="full-width mat-elevation-z8"
+                >
+                  <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef>Titulo</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.title }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Precio</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.price }}
+                    </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="thumbnail">
+                    <th mat-header-cell *matHeaderCellDef>Thumbnail</th>
+                    <td mat-cell *matCellDef="let element">
+                      <img
+                        width="50%"
+                        style="padding: 10px"
+                        src="{{ element.thumbnail }}"
+                      />
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h2>Centro de mensajes</h2>
+            <form #formMensaje="ngForm" [formGroup]="mensajeForm" class="form">
+              <div class="row">
+                <div class="col-md-5">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      formControlName="email"
+                      placeholder="Ingrese su email"
+                    />
+                    <mat-error
+                      *ngIf="mensajeForm.controls['email'].hasError('required')"
+                      >Campo requerido</mat-error
+                    >
+                    <mat-error
+                      *ngIf="mensajeForm.controls['email'].hasError('email')"
+                      >Debe ser un email valido</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-md-7">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Mensaje</mat-label>
+                    <textarea
+                      matInput
+                      formControlName="mensaje"
+                      placeholder="Su mensaje..."
+                    ></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button
+                    (click)="enviarMensaje()"
+                    [disabled]="!mensajeForm.valid"
+                    mat-raised-button
+                    class="float-end"
+                    color="primary"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col">
+                <h3>Mensajes</h3>
+                <ul style="list-style-type: none">
+                  <li *ngFor="let mensaje of mensajes">
+                    <span style="color: blue; font-weight: bold" class="me-1">{{
+                      mensaje.email
+                    }}</span>
+                    <span style="color: brown" class="me-1"
+                      >[{{ mensaje.fecha }}]:</span
+                    >
+                    <span style="color: green; font-style: italic">{{
+                      mensaje.mensaje
+                    }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+    >
+      <div class="col-md-4 d-flex align-items-center">
+        <a
+          href="/"
+          class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+        >
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <span class="mb-3 mb-md-0 text-muted" style="margin-left: 5px">
+          Desarrollado por:
+          <a href="https://github.com/maximozoppini">MZ</a></span
+        >
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex"></ul>
+    </footer>
+  </body>
+</html>
