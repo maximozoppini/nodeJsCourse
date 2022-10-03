@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const { routerProductos } = require("./routerProductos");
+const { routerProductos } = require("./rutas/routerProductos");
+const { routerCarrito } = require("./rutas/routerCarrito");
 
 const app = express();
 app.use(express.json());
@@ -16,16 +17,19 @@ var userLogged = false;
 
 //root de la app
 app.get("/", (req, res) => {
-    console.log(module);
-    res.send("hola, server ONLINE " + userLogged);
+    res.status(200).json({ msg: "proyecto final zoppini" });
 });
+// app.get("*", (req, res) => {
+//     res.status(404).json({ error: "ruta inexistente" });
+// });
 app.post("/login", (req, res) => {
     module.exports.logged = true;
-    res.status(200).json("user logged in");
+    res.status(200).json({ msg: "user logged in" });
 });
+
 //router para los productos
 app.use("/productos", routerProductos);
 //router para el carrito
-// app.use("/carrito", routerProducto);
+app.use("/carrito", routerCarrito);
 
 module.exports.logged = userLogged;

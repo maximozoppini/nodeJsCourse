@@ -1,0 +1,47 @@
+[
+  {
+    "timeStamp": 1664656284968,
+    "productos": [
+      {
+        "nombre": "Nuevo producto",
+        "descripcion": "producto nuevo",
+        "codigo": "aa234",
+        "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+        "precio": 123.45,
+        "stock": 200,
+        "timeStamp": 1664493927308,
+        "id": 5,
+        "cantidad": 5
+      },
+      {
+        "nombre": "Nuevo producto",
+        "descripcion": "producto nuevo",
+        "codigo": "aa234",
+        "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+        "precio": 123.45,
+        "stock": 200,
+        "timeStamp": 1664495019439,
+        "id": 11,
+        "cantidad": 5
+      }
+    ],
+    "id": 2
+  },
+  {
+    "timeStamp": 1664657376082,
+    "productos": [
+      {
+        "nombre": "Nuevo producto",
+        "descripcion": "producto nuevo",
+        "codigo": "aa234",
+        "url": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+        "precio": 123.45,
+        "stock": 200,
+        "timeStamp": 1664495019439,
+        "id": 11,
+        "cantidad": 5
+      }
+    ],
+    "id": 3
+  }
+]

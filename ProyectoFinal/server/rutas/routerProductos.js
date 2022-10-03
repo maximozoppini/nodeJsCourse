@@ -1,23 +1,34 @@
 const express = require("express");
-const { Contenedor } = require("./contenedor.js");
-var index = require("./index.js");
+const { Productos } = require("../logica/productos.class");
+var index = require("../index");
 // const cors = require("cors");
 
 const routerProductos = express.Router();
-const contenedorProductos = new Contenedor("productos.txt");
+const logicaProductos = new Productos();
 
 routerProductos.use(handleErrors);
 // routerMensaje.use(cors());
 
+routerProductos.get("/", async (req, res, next) => {
+    try {
+        const productos = await logicaProductos.getAll();
+        res.status(200).json(productos);
+    } catch (error) {
+        next(error);
+    }
+});
+
 routerProductos.get("/:id", async (req, res, next) => {
     try {
         if (!Number.isNaN(req.params.id)) {
-            const producto = await contenedorProductos.getById(req.params.id);
+            const producto = await logicaProductos.getById(
+                Number(req.params.id)
+            );
             res.status(200).json(
                 producto ?? { error: "producto no encontrado" }
             );
         } else {
-            res.status(400).json({ error: "el parametro no es un numero" });
+            res.status(400).json({ error: "parametro incorrecto" });
         }
     } catch (error) {
         next(error);
@@ -32,17 +43,8 @@ routerProductos.post("/", checkUser, async (req, res, next) => {
             req.body.codigo &&
             !Number.isNaN(req.body.stock)
         ) {
-            const timeStamp = Date.now();
-            let { nombre, descripcion, codigo, url, precio, stock } = req.body;
-            const producto = await contenedorProductos.save({
-                nombre,
-                descripcion,
-                codigo,
-                url,
-                precio,
-                stock,
-                timeStamp,
-            });
+            const producto = await logicaProductos.save(req.body);
+            console.log(producto);
             res.status(200).json(
                 producto ?? { error: "no se pudo registrar el producto" }
             );
@@ -65,7 +67,7 @@ routerProductos.put("/:id", checkUser, async (req, res, next) => {
             !Number.isNaN(req.body.stock)
         ) {
             let { nombre, descripcion, codigo, url, precio, stock } = req.body;
-            const producto = await contenedorProductos.update(
+            const producto = await logicaProductos.update(
                 Number(req.params.id),
                 {
                     nombre,
@@ -92,9 +94,7 @@ routerProductos.put("/:id", checkUser, async (req, res, next) => {
 routerProductos.delete("/:id", checkUser, async (req, res, next) => {
     try {
         if (!Number.isNaN(req.params.id)) {
-            const result = await contenedorProductos.deleteById(
-                Number(req.params.id)
-            );
+            const result = await logicaProductos.delete(Number(req.params.id));
             res.status(200).json(
                 result !== null
                     ? { mensaje: `se elimino el producto con el id: ${result}` }
