@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const listener = app.listen(process.env.PORT || 8080, function () {
-    console.log(`Your app is listening to port: ${listener.address().port}`);
+  console.log(`Your app is listening to port: ${listener.address().port}`);
 });
 listener.on("error", (error) => console.log(`error en el servidor: ${error}`));
 
@@ -17,14 +17,11 @@ var userLogged = false;
 
 //root de la app
 app.get("/", (req, res) => {
-    res.status(200).json({ msg: "proyecto final zoppini" });
+  res.status(200).json({ msg: "proyecto final zoppini" });
 });
-// app.get("*", (req, res) => {
-//     res.status(404).json({ error: "ruta inexistente" });
-// });
 app.post("/login", (req, res) => {
-    module.exports.logged = true;
-    res.status(200).json({ msg: "user logged in" });
+  module.exports.logged = true;
+  res.status(200).json({ msg: "user logged in" });
 });
 
 //router para los productos
