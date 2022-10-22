@@ -1,0 +1,852 @@
+Last login: Thu Oct 20 09:04:19 on ttys000
+^[[A%                                                                           maxizoppini@MacBook-Pro-de-Maximo ~ % brew services start mongodb/brew/mongodb-community
+==> Successfully started `mongodb-community` (label: homebrew.mxcl.mongodb-commu
+maxizoppini@MacBook-Pro-de-Maximo ~ % mongosh
+Current Mongosh Log ID:	6354036ced20e8f5f1851b78
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0
+Using MongoDB:		6.0.1
+Using Mongosh:		1.6.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-10-22T11:37:04.994-03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+   
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+   
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> show dbs
+admin       40.00 KiB
+coderHouse   8.00 KiB
+colegio     72.00 KiB
+config      72.00 KiB
+local       72.00 KiB
+test> use colegio
+switched to db colegio
+colegio> show dbs
+admin       40.00 KiB
+coderHouse   8.00 KiB
+colegio     72.00 KiB
+config      72.00 KiB
+local       72.00 KiB
+colegio> db
+colegio
+colegio> show collections
+estudiantes
+colegio> clear
+ReferenceError: clear is not defined
+colegio> use ecommerece
+switched to db ecommerece
+ecommerece> show dbs
+admin       40.00 KiB
+coderHouse   8.00 KiB
+colegio     72.00 KiB
+config      72.00 KiB
+local       72.00 KiB
+ecommerece> db.createCollection('productos')
+{ ok: 1 }
+ecommerece> db.createCollection('mensajes')
+{ ok: 1 }
+ecommerece> show collections
+mensajes
+productos
+ecommerece> db.productos.insertMany( [{ title: 'lorem', price: 80.23, thumbnail: 'https://ebay.com' }, { title: 'lobortis', price: 59.56, thumbnail: 'https://wikipedia.org' }, { title: 'aliquam', price: 77.01, thumbnail: 'https://ebay.com' }, { title: 'felis,', price: 35.42, thumbnail: 'http://naver.com' }, { title: 'in,', price: 27.95, thumbnail: 'https://zoom.us' }, { title: 'arcu.', price: 24.51, thumbnail: 'https://wikipedia.org' }, { title: 'tincidunt,', price: 36.26, thumbnail: 'https://twitter.com' }, { title: 'Cras', price: 67.16, thumbnail: 'http://bbc.co.uk' }, { title: 'mollis.', price: 7.98, thumbnail: 'http://guardian.co.uk' }, { title: 'ligula.', price: 35.22, thumbnail: 'http://youtube.com' }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63540fd1ed20e8f5f1851b79"),
+    '1': ObjectId("63540fd1ed20e8f5f1851b7a"),
+    '2': ObjectId("63540fd1ed20e8f5f1851b7b"),
+    '3': ObjectId("63540fd1ed20e8f5f1851b7c"),
+    '4': ObjectId("63540fd1ed20e8f5f1851b7d"),
+    '5': ObjectId("63540fd1ed20e8f5f1851b7e"),
+    '6': ObjectId("63540fd1ed20e8f5f1851b7f"),
+    '7': ObjectId("63540fd1ed20e8f5f1851b80"),
+    '8': ObjectId("63540fd1ed20e8f5f1851b81"),
+    '9': ObjectId("63540fd1ed20e8f5f1851b82")
+  }
+}
+ecommerece> db.mensajes.insertMany([
+... 	{
+... 		email: 'felis.eget@hotmail.org',
+... 		fecha: '2023-03-27 12:53:26',
+... 		mensaje: 'sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et'
+... 	},
+... 	{
+... 		email: 'nibh.quisque@icloud.net',
+... 		fecha: '2022-09-23 00:46:14',
+... 		mensaje: 'risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas'
+... 	},
+... 	{
+... 		email: 'sed.pede@icloud.edu',
+... 		fecha: '2023-06-24 14:22:48',
+... 		mensaje: 'enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum'
+... 	},
+... 	{
+... 		email: 'commodo.tincidunt@yahoo.net',
+... 		fecha: '2023-01-25 00:40:41',
+... 		mensaje: 'lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec'
+... 	},
+... 	{
+... 		email: 'ut.ipsum@protonmail.couk',
+... 		fecha: '2022-04-12 00:07:17',
+... 		mensaje: 'senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque.'
+... 	},
+... 	{
+... 		email: 'et.commodo.at@yahoo.couk',
+... 		fecha: '2023-03-24 00:00:58',
+... 		mensaje: 'nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam.'
+... 	},
+... 	{
+... 		email: 'senectus.et.netus@icloud.net',
+... 		fecha: '2021-11-10 13:31:07',
+... 		mensaje: 'tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper'
+... 	},
+... 	{
+... 		email: 'sagittis@yahoo.ca',
+... 		fecha: '2023-10-16 11:26:47',
+... 		mensaje: 'libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet'
+... 	},
+... 	{
+... 		email: 'et.tristique@yahoo.couk',
+... 		fecha: '2023-07-08 05:27:03',
+... 		mensaje: 'lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat,'
+... 	},
+... 	{
+... 		email: 'mauris@outlook.edu',
+... 		fecha: '2022-09-19 02:25:01',
+... 		mensaje: 'et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam'
+... 	}
+... ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6354115ced20e8f5f1851b83"),
+    '1': ObjectId("6354115ced20e8f5f1851b84"),
+    '2': ObjectId("6354115ced20e8f5f1851b85"),
+    '3': ObjectId("6354115ced20e8f5f1851b86"),
+    '4': ObjectId("6354115ced20e8f5f1851b87"),
+    '5': ObjectId("6354115ced20e8f5f1851b88"),
+    '6': ObjectId("6354115ced20e8f5f1851b89"),
+    '7': ObjectId("6354115ced20e8f5f1851b8a"),
+    '8': ObjectId("6354115ced20e8f5f1851b8b"),
+    '9': ObjectId("6354115ced20e8f5f1851b8c")
+  }
+}
+ecommerece> db.productos.deleteMany({})
+{ acknowledged: true, deletedCount: 10 }
+ecommerece> db.productos.insertMany( [{ title: 'lorem', price: 3000, thumbnail: 'https://ebay.com' }, { title: 'lobortis', price: 2300, thumbnail: 'https://wikipedia.org' }, { title: 'aliquam', price: 4440, thumbnail: 'https://ebay.com' }, { title: 'felis,', price: 1865, thumbnail: 'http://naver.com' }, { title: 'in,', price: 690, thumbnail: 'https://zoom.us' }, { title: 'arcu.', price: 125, thumbnail: 'https://wikipedia.org' }, { title: 'tincidunt,', price: 500, thumbnail: 'https://twitter.com' }, { title: 'Cras', price: 3490, thumbnail: 'http://bbc.co.uk' }, { title: 'mollis.', price: 350, thumbnail: 'http://guardian.co.uk' }, { title: 'ligula.', price: 4550, thumbnail: 'http://youtube.com' }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("6354178bed20e8f5f1851b8d"),
+    '1': ObjectId("6354178bed20e8f5f1851b8e"),
+    '2': ObjectId("6354178bed20e8f5f1851b8f"),
+    '3': ObjectId("6354178bed20e8f5f1851b90"),
+    '4': ObjectId("6354178bed20e8f5f1851b91"),
+    '5': ObjectId("6354178bed20e8f5f1851b92"),
+    '6': ObjectId("6354178bed20e8f5f1851b93"),
+    '7': ObjectId("6354178bed20e8f5f1851b94"),
+    '8': ObjectId("6354178bed20e8f5f1851b95"),
+    '9': ObjectId("6354178bed20e8f5f1851b96")
+  }
+}
+ecommerece> db.productos.find()
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com'
+  }
+]
+ecommerece> db.mensajes.find()
+[
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b83"),
+    email: 'felis.eget@hotmail.org',
+    fecha: '2023-03-27 12:53:26',
+    mensaje: 'sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b84"),
+    email: 'nibh.quisque@icloud.net',
+    fecha: '2022-09-23 00:46:14',
+    mensaje: 'risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b85"),
+    email: 'sed.pede@icloud.edu',
+    fecha: '2023-06-24 14:22:48',
+    mensaje: 'enim non nisi. Aenean eget metus. In nec orci. Donec nibh. Quisque nonummy ipsum'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b86"),
+    email: 'commodo.tincidunt@yahoo.net',
+    fecha: '2023-01-25 00:40:41',
+    mensaje: 'lorem fringilla ornare placerat, orci lacus vestibulum lorem, sit amet ultricies sem magna nec'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b87"),
+    email: 'ut.ipsum@protonmail.couk',
+    fecha: '2022-04-12 00:07:17',
+    mensaje: 'senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque.'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b88"),
+    email: 'et.commodo.at@yahoo.couk',
+    fecha: '2023-03-24 00:00:58',
+    mensaje: 'nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam.'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b89"),
+    email: 'senectus.et.netus@icloud.net',
+    fecha: '2021-11-10 13:31:07',
+    mensaje: 'tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b8a"),
+    email: 'sagittis@yahoo.ca',
+    fecha: '2023-10-16 11:26:47',
+    mensaje: 'libero. Proin mi. Aliquam gravida mauris ut mi. Duis risus odio, auctor vitae, aliquet'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b8b"),
+    email: 'et.tristique@yahoo.couk',
+    fecha: '2023-07-08 05:27:03',
+    mensaje: 'lacus, varius et, euismod et, commodo at, libero. Morbi accumsan laoreet ipsum. Curabitur consequat,'
+  },
+  {
+    _id: ObjectId("6354115ced20e8f5f1851b8c"),
+    email: 'mauris@outlook.edu',
+    fecha: '2022-09-19 02:25:01',
+    mensaje: 'et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam'
+  }
+]
+ecommerece> db.productos.insert({title:'Producto nuevo', price: 100, thumbnail:'http://paginaProducto.com'})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("63541861ed20e8f5f1851b97") }
+}
+ecommerece> db.productos.find()
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com'
+  },
+  {
+    _id: ObjectId("63541861ed20e8f5f1851b97"),
+    title: 'Producto nuevo',
+    price: 100,
+    thumbnail: 'http://paginaProducto.com'
+  }
+]
+ecommerece> db.productos.estimatedDocumentCount()
+11
+ecommerece> db.mensajes.estimatedDocumentCount()
+10
+ecommerece> db.productos.find({price:{$lt:1000} })
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk'
+  },
+  {
+    _id: ObjectId("63541861ed20e8f5f1851b97"),
+    title: 'Producto nuevo',
+    price: 100,
+    thumbnail: 'http://paginaProducto.com'
+  }
+]
+ecommerece> db.productos.find({$and: [ {price:{$gte:1000}},{price: {$lte: 3000}}]})
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com'
+  }
+]
+ecommerece> db.productos.find({price:{$gte:3000} })
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com'
+  }
+]
+ecommerece> db.productos.find().sort({price:1})
+[
+  {
+    _id: ObjectId("63541861ed20e8f5f1851b97"),
+    title: 'Producto nuevo',
+    price: 100,
+    thumbnail: 'http://paginaProducto.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com'
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com'
+  }
+]
+
+ecommerece> db.productos.find().sort({price:1}).skip(2).limit(1)
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk'
+  }
+]
+ecommerece> db.productos.find({},{title:1}).sort({price:1}).skip(2).limit(1)
+[ { _id: ObjectId("6354178bed20e8f5f1851b95"), title: 'mollis.' } ]
+ecommerece> db.productos.find({},{title:1, _id:0}).sort({price:1}).skip(2).limit(1)
+[ { title: 'mollis.' } ]
+ecommerece> db.productos.updateMany({},{$set: {stock:100}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 11,
+  upsertedCount: 0
+}
+ecommerece> db.productos.find()
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("63541861ed20e8f5f1851b97"),
+    title: 'Producto nuevo',
+    price: 100,
+    thumbnail: 'http://paginaProducto.com',
+    stock: 100
+  }
+]
+ecommerece> db.productos.updateMany({price: {$gte:4000}},{$set: {stock:0}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+ecommerece> db.productos.find().sort({price:1})
+[
+  {
+    _id: ObjectId("63541861ed20e8f5f1851b97"),
+    title: 'Producto nuevo',
+    price: 100,
+    thumbnail: 'http://paginaProducto.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b92"),
+    title: 'arcu.',
+    price: 125,
+    thumbnail: 'https://wikipedia.org',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b95"),
+    title: 'mollis.',
+    price: 350,
+    thumbnail: 'http://guardian.co.uk',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b93"),
+    title: 'tincidunt,',
+    price: 500,
+    thumbnail: 'https://twitter.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b91"),
+    title: 'in,',
+    price: 690,
+    thumbnail: 'https://zoom.us',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com',
+    stock: 0
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com',
+    stock: 0
+  }
+]
+ecommerece> db.productos.deleteMany({price: {$lt:1000}})
+{ acknowledged: true, deletedCount: 5 }
+ecommerece> db.productos.find().sort({price:1})
+[
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b90"),
+    title: 'felis,',
+    price: 1865,
+    thumbnail: 'http://naver.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8e"),
+    title: 'lobortis',
+    price: 2300,
+    thumbnail: 'https://wikipedia.org',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8d"),
+    title: 'lorem',
+    price: 3000,
+    thumbnail: 'https://ebay.com',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b94"),
+    title: 'Cras',
+    price: 3490,
+    thumbnail: 'http://bbc.co.uk',
+    stock: 100
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b8f"),
+    title: 'aliquam',
+    price: 4440,
+    thumbnail: 'https://ebay.com',
+    stock: 0
+  },
+  {
+    _id: ObjectId("6354178bed20e8f5f1851b96"),
+    title: 'ligula.',
+    price: 4550,
+    thumbnail: 'http://youtube.com',
+    stock: 0
+  }
+]
+ecommerece> use admin
+switched to db admin
+admin> db.create
+db.createUser        db.createCollection  db.createView        db.createRole
+
+admin> db.createUser({user:'pepe', pwd:'asd456', roles:[{role:'read', db:'ecommerce'}]})
+{ ok: 1 }
+admin> db.system.users.find()
+[
+  {
+    _id: 'admin.pepe',
+    userId: new UUID("cfb92578-5e5e-429b-80a9-f751021d54db"),
+    user: 'pepe',
+    db: 'admin',
+    credentials: {
+      'SCRAM-SHA-1': {
+        iterationCount: 10000,
+        salt: 'YFbZ0TpCpAcnMy7HklPnHA==',
+        storedKey: 'K8dPPvfOJzcS5Byc/BCs+EhTjvc=',
+        serverKey: 'WQg/csumTWiP0Um7qkzrAMpr+FY='
+      },
+      'SCRAM-SHA-256': {
+        iterationCount: 15000,
+        salt: 'Fd0C74vuxaJS1yHXSpx6r8JHL7GRmDhPoXKB/A==',
+        storedKey: 'K9XdjExsaYsFOJy6GoXyhVx9s2RWvyQsL9cV5oSgJWU=',
+        serverKey: 'fNhrQCzsjIYCVb6k7gL+5CLdXvZK/enOBiCxozL6/4Q='
+      }
+    },
+    roles: [ { role: 'read', db: 'ecommerce' } ]
+  }
+]
+maxizoppini@MacBook-Pro-de-Maximo ~ % mongosh -u pepe -p asd4562                        
+Current Mongosh Log ID:	6354219b99d8f332dfe01ee7
+Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0
+MongoServerError: Authentication failed.
+maxizoppini@MacBook-Pro-de-Maximo ~ % mongosh                   
+Current Mongosh Log ID:	63542393503420221f6fa185
+Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0
+Using MongoDB:		6.0.1
+Using Mongosh:		1.6.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-10-22T11:37:04.994-03:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+   
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+   
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+test> use admin
+switched to db admin
+admin> db.revokeRolesFromUser('pepe',[{role:'read', db:'ecommerce'}])
+{ ok: 1 }
+admin> db.grantRolesToUser('pepe',[{role:'read', db:'ecommerece'}])
+{ ok: 1 }
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+ecommerece> 
+maxizoppini@MacBook-Pro-de-Maximo ~ % mongosh -u pepe -p asd456 
+Current Mongosh Log ID:	6354251b0fc350fe21d651a7
+test> show collections
+
+test> show dbs
+admin       148.00 KiB
+coderHouse    8.00 KiB
+colegio      72.00 KiB
+config      108.00 KiB
+ecommerce    40.00 KiB
+ecommerece  112.00 KiB
+local        72.00 KiB
+test> use ecommerece
+switched to db ecommerece
+ecommerece> show collections
+mensajes
+productos
+ecommerece> db.productos.estimatedDocumentCount()
+6
+ecommerece> db.productos.insert({title:'Producto nuevo', price: 100, thumbnail:'http://paginaProducto.com'})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("635425440fc350fe21d651a8") }
+}
+ecommerece> db.productos.estimatedDocumentCount()
+7
+ecommerece> 
