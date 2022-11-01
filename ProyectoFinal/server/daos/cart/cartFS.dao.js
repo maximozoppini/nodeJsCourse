@@ -44,12 +44,9 @@ class CartFileSystemDAO extends FileSystemContainer {
     if (!cart) {
       return null;
     }
-    console.log("antes, ", cart);
     cart.productos = [
       ...cart.productos.filter((prod) => prod.id !== productId),
     ];
-    console.log("desp", cart);
-
     return await super.update(cartId, cart);
   }
 }

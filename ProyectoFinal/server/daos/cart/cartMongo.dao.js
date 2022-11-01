@@ -1,4 +1,6 @@
 const { MongoDbContainer } = require("../../containers/mongoDbContainer");
+const cartModel = require("../../models/cart.model");
+var util = require("util");
 
 class CartMongoDAO extends MongoDbContainer {
   constructor(url, model) {
@@ -6,48 +8,48 @@ class CartMongoDAO extends MongoDbContainer {
   }
 
   async getProducts(id) {
-    return await super.getById(id).productos;
+    // return await super.getById(id)?.productos;
+    let result = await super.getById(id);
+    return await super.getById(id)?.productos;
   }
 
   async save() {
-    const cart = await super.save({
-      timeStamp: Date.now(),
-      productos: [],
-    });
+    const cart = await super.save(new cartModel());
     return cart;
   }
 
   async saveProduct(cartId, product) {
     let cart = await super.getById(cartId);
-    if (!cart) {
+    if (cart === null) {
       return null;
     }
 
-    const newProduct = await this.productFileSystemDAO.getById(product.id);
-    if (!newProduct) {
-      return null;
+    console.log("carrito antes", util.inspect(cart, true, null));
+    let existingProd = cart.productos.find((x) => x.producto == product.id);
+    console.log("producto encontrado", existingProd);
+    if (existingProd) {
+      cart.productos.map((prod) => {
+        if (prod.producto == product.id) {
+          console.log("el producto q se encontro", prod);
+          let nuevoProd = {
+            producto: prod.producto,
+            cantidad: Number(prod.cantidad) + product.cantidad,
+          };
+          console.log("nuevo producto", nuevoProd);
+          return nuevoProd;
+        } else {
+          return prod;
+        }
+      });
+    } else {
+      cart.productos.push({ producto: product.id, cantidad: product.cantidad });
     }
-
-    cart.productos.push({
-      ...newProduct,
-      cantidad: product.cantidad,
-    });
+    console.log("carrito despues", util.inspect(cart, true, null));
 
     return await super.update(cartId, cart);
   }
 
   async deleteProduct(cartId, productId) {
-    console.log("id", cartId);
-    let cart = await super.getById(cartId);
-    if (!cart) {
-      return null;
-    }
-    console.log("antes, ", cart);
-    cart.productos = [
-      ...cart.productos.filter((prod) => prod.id !== productId),
-    ];
-    console.log("desp", cart);
-
     return await super.update(cartId, cart);
   }
 }
