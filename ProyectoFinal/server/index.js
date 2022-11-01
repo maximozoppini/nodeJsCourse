@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const { routerProductos } = require("./rutas/routerProductos");
-const { routerCarrito } = require("./rutas/routerCarrito");
+require("dotenv").config();
+
+const { routerProduct } = require("./rutas/routerProductos");
+//const { routerCart } = require("./rutas/routerCarrito");
 
 const app = express();
 app.use(express.json());
@@ -25,8 +27,8 @@ app.post("/login", (req, res) => {
 });
 
 //router para los productos
-app.use("/productos", routerProductos);
+app.use("/productos", routerProduct);
 //router para el carrito
-app.use("/carrito", routerCarrito);
+//app.use("/carrito", routerCart);
 
 module.exports.logged = userLogged;
