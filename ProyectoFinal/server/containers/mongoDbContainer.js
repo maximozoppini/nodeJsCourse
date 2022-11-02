@@ -27,6 +27,16 @@ class MongoDbContainer {
     }
   }
 
+  async findOneAndUpdate(filter, newObj, options = null) {
+    try {
+      await this.mongoDb(this.url);
+      let result = await this.model.findOneAndUpdate(filter, newObj, options);
+      return result;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async getById(id) {
     try {
       await this.mongoDb(this.url);

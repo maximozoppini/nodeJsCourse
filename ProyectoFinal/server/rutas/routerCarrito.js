@@ -69,23 +69,25 @@ routerCart.post("/:id/productos", async (req, res, next) => {
 
 routerCart.delete("/:id/productos/:id_prod", async (req, res, next) => {
   try {
-    if (!Number.isNaN(req.params.id) && !Number.isNaN(req.params.id_prod)) {
-      const result = await cartDao.deleteProduct(
-        Number(req.params.id),
-        Number(req.params.id_prod)
-      );
-      res.status(200).json(
-        result !== null
-          ? {
-              mensaje: `se elimino del carrito con el id: ${result.id} el producto`,
-            }
-          : { error: "carrito o producto no encontrado" }
-      );
-    } else {
-      res.status(400).json({
-        error: "el parametro enviado no es un numero",
-      });
+    if (
+      req.params.id === undefined ||
+      req.params.id === null ||
+      req.params.id_prod === undefined ||
+      req.params.id_prod === null
+    ) {
+      res.status(400).json({ error: "parametro incorrecto" });
     }
+    const result = await cartDao.deleteProduct(
+      req.params.id,
+      req.params.id_prod
+    );
+    res.status(200).json(
+      result !== null
+        ? {
+            mensaje: `se elimino del carrito con el id: ${result.id} el producto`,
+          }
+        : { error: "carrito o producto no encontrado" }
+    );
   } catch (error) {
     next(error);
   }

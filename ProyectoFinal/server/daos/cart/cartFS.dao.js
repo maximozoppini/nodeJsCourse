@@ -39,7 +39,6 @@ class CartFileSystemDAO extends FileSystemContainer {
   }
 
   async deleteProduct(cartId, productId) {
-    console.log("id", cartId);
     let cart = await super.getById(cartId);
     if (!cart) {
       return null;
