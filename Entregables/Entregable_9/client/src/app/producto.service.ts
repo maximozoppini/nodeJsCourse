@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Observable } from 'rxjs';
@@ -6,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductoService {
-  constructor(private socket: Socket) {
+  constructor(private socket: Socket, private httpClient: HttpClient) {
     this.socket.connect();
   }
 
@@ -16,5 +17,9 @@ export class ProductoService {
 
   get(): Observable<any> {
     return this.socket.fromEvent('productos');
+  }
+
+  getTestProducts(): Observable<any> {
+    return this.httpClient.get("http://localhost:8081/api/productos-test/")
   }
 }

@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public productoForm!: FormGroup;
   public mensajeForm!: FormGroup;
   public destroy$ = new Subject<boolean>();
-  public productos = [];
+  public productos: any = [{}];
   public mensajes: any = [{}];
   public displayedColumns: string[] = ['title', 'price', 'thumbnail'];
 
@@ -43,6 +43,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.mensajeForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       mensaje: '',
+      nombre: '',
+      apellido: '',
+      avatar: '',
+      edad: '',
+      alias: '',
     });
 
     this.serviceProducto.get().subscribe((data) => (this.productos = data));
@@ -65,5 +70,12 @@ export class AppComponent implements OnInit, OnDestroy {
   enviarMensaje(): void {
     let mensaje = this.mensajeForm.value;
     this.serviceMensajes.sendMensaje(mensaje);
+  }
+
+  getProductTests(): void {
+    this.serviceProducto.getTestProducts().subscribe((data) => {
+      console.log(data)
+      this.productos = data;
+    })
   }
 }
