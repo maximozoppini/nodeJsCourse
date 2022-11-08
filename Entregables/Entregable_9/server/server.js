@@ -38,7 +38,7 @@ io.on("connection", async (socket) => {
   socket.emit("mensajes", await mensajesDao.getAll());
   socket.on("mensaje", async (data) => {
     await mensajesDao.save(data);
-    //io.sockets.emit("mensajes", await mensajesDao.getAll());
+    io.sockets.emit("mensajes", await mensajesDao.getAll());
   });
 });
 

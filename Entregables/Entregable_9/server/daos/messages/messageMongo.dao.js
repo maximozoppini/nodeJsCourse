@@ -30,19 +30,22 @@ class MessageMongoDAO extends MongoDbContainer {
   async getAll() {
     let messages = { messages: await super.getAll() };
 
-    //console.log("info de mongo", util.inspect(messages, false, Infinity));
-    const authorSchemaNmlz = new schema.Entity(
-      "authors",
-      {},
-      { idAttribute: "email" }
-    );
-    const messageSchemaNmlz = new schema.Entity("message", {
-      author: authorSchemaNmlz,
+    const authorSchemaNmlz = new schema.Entity("author", undefined, {
+      idAttribute: "email",
     });
+    const messageSchemaNmlz = new schema.Entity(
+      "message",
+      {
+        author: authorSchemaNmlz,
+      },
+      {
+        idAttribute: "_id",
+      }
+    );
     const messagesSchemaNmlz = { messages: [messageSchemaNmlz] };
     const normalizado = normalize(messages, messagesSchemaNmlz);
 
-    //console.log(util.inspect(normalizado, false, 5));
+    console.log(util.inspect(normalizado, false, 4, true));
     return normalizado;
   }
 }
