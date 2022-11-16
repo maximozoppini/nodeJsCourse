@@ -33,19 +33,12 @@ class MessageMongoDAO extends MongoDbContainer {
     const authorSchemaNmlz = new schema.Entity("author", undefined, {
       idAttribute: "email",
     });
-    const messageSchemaNmlz = new schema.Entity(
-      "message",
-      {
-        author: authorSchemaNmlz,
-      },
-      {
-        idAttribute: "_id",
-      }
-    );
+    const messageSchemaNmlz = new schema.Entity("message", {
+      author: authorSchemaNmlz,
+    });
     const messagesSchemaNmlz = { messages: [messageSchemaNmlz] };
     const normalizado = normalize(messages, messagesSchemaNmlz);
 
-    console.log(util.inspect(normalizado, false, 4, true));
     return normalizado;
   }
 }

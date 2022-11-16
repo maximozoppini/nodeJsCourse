@@ -8,6 +8,7 @@ const authorSchema = new Schema({
   alias: { type: String },
   avatar: { type: String },
 });
+authorSchema.set("toObject", { getters: true });
 const authorModel = model("author", authorSchema);
 
 const messageSchema = new Schema({
@@ -15,6 +16,7 @@ const messageSchema = new Schema({
   text: { type: String },
   timeStamp: { type: Date, default: Date.now },
 });
+messageSchema.set("toObject", { getters: true });
 
 const messageModel = model("mensajes", messageSchema);
 

@@ -69,6 +69,9 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
+@angular/router
+MIT
+
 @ng-bootstrap/ng-bootstrap
 MIT
 The MIT License (MIT)

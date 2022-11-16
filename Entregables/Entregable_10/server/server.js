@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
+const MongoDBStore = require("connect-mongodb-session")(session);
 const { Server: HttpServer } = require("http");
 const { Server: IOServer } = require("socket.io");
-const { routerTest } = require("./routerTest");
+const { routerSession } = require("./routes/routerSession");
 const { ProductMongoDAO } = require("./daos/products/productMongo.dao");
 const { MessageMongoDAO } = require("./daos/messages/messageMongo.dao");
 const productModel = require("./models/product.model");
@@ -20,10 +23,38 @@ const io = new IOServer(httpServer, {
 const productosDao = new ProductMongoDAO(process.env.MONGODBURL, productModel);
 const mensajesDao = new MessageMongoDAO(process.env.MONGODBURL, messageModel);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieParser());
+app.use(
+  session({
+    secret: process.env.CONNECTION_MONGODB_SECRET,
+    name: "session-id",
+    store: new MongoDBStore({
+      uri: process.env.MONGODBURL,
+      collection: "sessions",
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      secure: false,
+    },
+    resave: true,
+    saveUninitialized: false,
+  })
+);
+
+//router para test
+//app.use("/api/productos-test", routerTest);
+//router para session
+app.use("/api", routerSession);
 
 app.set("socketio", io);
 io.on("connection", async (socket) => {
@@ -41,9 +72,6 @@ io.on("connection", async (socket) => {
     io.sockets.emit("mensajes", await mensajesDao.getAll());
   });
 });
-
-//router para test
-app.use("/api/productos-test", routerTest);
 
 const connectedServer = httpServer.listen(process.env.PORT || 8081, () => {
   console.log(
