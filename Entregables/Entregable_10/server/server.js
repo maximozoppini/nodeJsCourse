@@ -51,8 +51,6 @@ app.use(
   })
 );
 
-//router para test
-//app.use("/api/productos-test", routerTest);
 //router para session
 app.use("/api", routerSession);
 

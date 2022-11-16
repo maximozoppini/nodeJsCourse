@@ -51,7 +51,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatTableModule,
     NgbModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     SocketIoModule.forRoot(config),
   ],
   providers: [
