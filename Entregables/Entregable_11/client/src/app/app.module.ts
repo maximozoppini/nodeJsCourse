@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { SingupComponent } from './singup/singup.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
 const routes: Routes = [
@@ -31,6 +32,12 @@ const routes: Routes = [
     component: LoginComponent,
   },
 
+  //register routing
+  {
+    path: 'register',
+    component: SingupComponent,
+  },
+
   //no rounte
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   //no page found
@@ -38,7 +45,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, SingupComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

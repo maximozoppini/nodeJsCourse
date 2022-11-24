@@ -44,6 +44,14 @@ class MongoDbContainer {
     }
   }
 
+  async getDocument(filter) {
+    try {
+      return (await this.model.findOne(filter)) ?? null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async getAll() {
     try {
       let result = await this.model.find();

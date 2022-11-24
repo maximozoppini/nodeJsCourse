@@ -8,11 +8,12 @@ import { Observable } from 'rxjs';
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  login(username: string): Observable<any> {
+  login(user: any): Observable<any> {
     return this.httpClient.post(
-      'http://localhost:8081/api/login',
+      'http://localhost:8081/login',
       {
-        username,
+        username: user.username,
+        password: user.password,
       },
       {
         withCredentials: true,
@@ -21,14 +22,27 @@ export class AuthService {
   }
 
   isLogged(): Observable<any> {
-    return this.httpClient.get('http://localhost:8081/api/login', {
+    return this.httpClient.get('http://localhost:8081/login', {
       withCredentials: true,
     });
   }
 
   logout(): Observable<any> {
-    return this.httpClient.get('http://localhost:8081/api/logout', {
+    return this.httpClient.get('http://localhost:8081/logout', {
       withCredentials: true,
     });
+  }
+
+  signUp(user: any): Observable<any> {
+    return this.httpClient.post(
+      'http://localhost:8081/register',
+      {
+        username: user.username,
+        password: user.password,
+      },
+      {
+        withCredentials: true,
+      }
+    );
   }
 }

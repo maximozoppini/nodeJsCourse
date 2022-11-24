@@ -6,12 +6,12 @@ import { catchError, of } from 'rxjs';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-singup',
+  templateUrl: './singup.component.html',
+  styleUrls: ['./singup.component.scss'],
 })
-export class LoginComponent implements OnInit {
-  public loginForm!: FormGroup;
+export class SingupComponent implements OnInit {
+  public signUpForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,22 +21,21 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.signUpForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
-  login(): void {
+  signUp(): void {
     this.authService
-      .login(this.loginForm.value)
+      .signUp(this.signUpForm.value)
       .pipe(
         catchError((err) => {
           console.log(
             '🚀 ~ file: login.component.ts ~ line 40 ~ LoginComponent ~ catchError ~ err',
             err
           );
-
           this.snackBar.open(err.error.message);
           return of(null);
         })

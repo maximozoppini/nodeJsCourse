@@ -20,6 +20,8 @@ export class ProductoService {
   }
 
   getTestProducts(): Observable<any> {
-    return this.httpClient.get("http://localhost:8081/api/productos-test/")
+    return this.httpClient.get('http://localhost:8081/productos-test/', {
+      withCredentials: true,
+    });
   }
 }

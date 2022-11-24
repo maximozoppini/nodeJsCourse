@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       .pipe(catchError((err) => this.router.navigateByUrl('/login')))
       .subscribe((data) => {
         console.log('data', data);
-        this.username = data?.username?.username;
+        this.username = data?.username;
       });
 
     this.productoForm = this.formBuilder.group({
