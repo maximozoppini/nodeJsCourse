@@ -32,10 +32,6 @@ export class SingupComponent implements OnInit {
       .signUp(this.signUpForm.value)
       .pipe(
         catchError((err) => {
-          console.log(
-            '🚀 ~ file: login.component.ts ~ line 40 ~ LoginComponent ~ catchError ~ err',
-            err
-          );
           this.snackBar.open(err.error.message);
           return of(null);
         })

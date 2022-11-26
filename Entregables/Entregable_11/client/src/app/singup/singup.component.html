@@ -36,6 +36,14 @@
       </div>
       <div class="row">
         <div class="col-md-6">
+          <a
+            [routerLink]="['/login']"
+            mat-raised-button
+            class="button"
+            color="secondary"
+          >
+            Login
+          </a>
           <button
             (click)="signUp()"
             [disabled]="!signUpForm.valid"

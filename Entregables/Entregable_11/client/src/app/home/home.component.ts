@@ -63,8 +63,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       alias: '',
     });
 
-    this.serviceProducto.get().subscribe((data) => (this.productos = data));
-    this.serviceMensajes.get().subscribe((data) => (this.mensajes = data));
+    // this.serviceProducto.get().subscribe((data) => (this.productos = data));
+    // this.serviceMensajes.get().subscribe((data) => (this.mensajes = data));
   }
 
   enviarForm(): void {

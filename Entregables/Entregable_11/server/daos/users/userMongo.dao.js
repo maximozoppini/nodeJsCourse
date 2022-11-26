@@ -7,11 +7,6 @@ class UserMongoDAO extends MongoDbContainer {
   }
 
   async save(user) {
-    console.log(
-      "🚀 ~ file: userMongo.dao.js ~ line 10 ~ UserMongoDAO ~ save ~ user",
-      user
-    );
-
     let newUser = await super.save(new userModel(user));
     return newUser;
   }

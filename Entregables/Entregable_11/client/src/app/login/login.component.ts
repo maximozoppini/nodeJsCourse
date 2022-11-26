@@ -32,11 +32,6 @@ export class LoginComponent implements OnInit {
       .login(this.loginForm.value)
       .pipe(
         catchError((err) => {
-          console.log(
-            '🚀 ~ file: login.component.ts ~ line 40 ~ LoginComponent ~ catchError ~ err',
-            err
-          );
-
           this.snackBar.open(err.error.message);
           return of(null);
         })

@@ -31,21 +31,21 @@ routerSession.get("/login", isLoggedIn, (req, res) => {
 
 routerSession.post("/login", async (req, res, next) => {
   try {
-    passport.authenticate("login", (error, user) => {
+    passport.authenticate("login", (error, user, message) => {
       if (error) {
-        next(error);
+        return next(error);
       }
       if (!user) {
-        res
-          .status(401)
-          .json({ message: "usuario inexistente o password incorrecta" });
+        return res.status(401).json(message);
       }
-      req.logIn(user, (error) => {
-        if (error) {
-          next(error);
-        }
-        res.status(200).json({ message: "exito", user });
-      });
+      if (user) {
+        req.logIn(user, (error) => {
+          if (error) {
+            return res.json(500).json({ message: "error en el servidor" });
+          }
+          return res.status(200).json({ message: "exito", user });
+        });
+      }
     })(req, res, next);
   } catch (error) {
     next(error);
@@ -67,24 +67,24 @@ routerSession.get("/logout", async (req, res) => {
   }
 });
 
-routerSession.post("/register", async (req, res) => {
+routerSession.post("/register", async (req, res, next) => {
   try {
-    passport.authenticate("register", (error, user) => {
+    passport.authenticate("register", (error, user, message) => {
       if (error) {
-        res.status(500).json({ message: error });
+        return next(error);
       }
       if (!user) {
-        res.status(401).json({ message: "usuario ya existe" });
+        return res.status(401).json(message);
       }
       req.logIn(user, (error) => {
         if (error) {
-          res.status(401).json({ message: "no se pudo loguear" });
+          return next({ message: error });
         }
-        res.status(200).json({ message: "exito", user });
+        return res.status(200).json({ message: "exito", user });
       });
-    })(req, res);
+    })(req, res, next);
   } catch (error) {
-    res.status(500).json({ message: error });
+    next(error);
   }
 });
 

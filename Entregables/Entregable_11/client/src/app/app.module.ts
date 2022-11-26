@@ -21,7 +21,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SingupComponent } from './singup/singup.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
+//const config: SocketIoConfig = { url: 'http://localhost:8081', options: {} };
 const routes: Routes = [
   //initial route
   { path: 'home', component: HomeComponent },
@@ -59,7 +59,7 @@ const routes: Routes = [
     MatTableModule,
     NgbModule,
     RouterModule.forRoot(routes, { useHash: true }),
-    SocketIoModule.forRoot(config),
+    //SocketIoModule.forRoot(config),
   ],
   providers: [
     {
