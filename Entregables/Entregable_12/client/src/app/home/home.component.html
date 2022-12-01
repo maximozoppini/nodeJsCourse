@@ -1,0 +1,256 @@
+<div class="row" style="background-color: lightblue; padding: 5px">
+  <div class="col-md-6">
+    <h2 style="color: red">Bienvenido {{ username }}</h2>
+  </div>
+  <div class="col-md-6">
+    <button
+      (click)="logOut()"
+      mat-raised-button
+      class="float-end"
+      color="secondary"
+    >
+      Log out
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Nuevo producto</h2>
+
+    <form #form="ngForm" [formGroup]="productoForm" class="form">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input
+              matInput
+              formControlName="title"
+              placeholder="Ingrese el nombre"
+            />
+            <mat-error
+              *ngIf="productoForm.controls['title'].hasError('required')"
+              >Campo requerido</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Precio</mat-label>
+            <input
+              matInput
+              min="0"
+              type="number"
+              formControlName="price"
+              placeholder="Ingrese el precio"
+            />
+            <mat-error
+              *ngIf="productoForm.controls['price'].hasError('required')"
+              >Campo requerido</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Thumbnail</mat-label>
+            <input
+              matInput
+              formControlName="thumbnail"
+              placeholder="Ingrese la url de la imagen"
+            />
+            <mat-error
+              *ngIf="productoForm.controls['thumbnail'].hasError('required')"
+              >Campo requerido</mat-error
+            >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <button
+            (click)="getProductTests()"
+            mat-raised-button
+            class="float-end"
+            color="secondary"
+          >
+            Obtener Productos TEST
+          </button>
+        </div>
+        <div class="col mb-4">
+          <button
+            (click)="enviarForm()"
+            [disabled]="!productoForm.valid"
+            mat-raised-button
+            class="float-end"
+            color="primary"
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col">
+        <table
+          mat-table
+          [dataSource]="productos"
+          class="full-width mat-elevation-z8"
+        >
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Titulo</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.title }}
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.price }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="thumbnail">
+            <th mat-header-cell *matHeaderCellDef>Thumbnail</th>
+            <td mat-cell *matCellDef="let element">
+              <img
+                width="50%"
+                style="padding: 10px"
+                src="{{ element.thumbnail }}"
+              />
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h2>Centro de mensajes</h2>
+    <form #formMensaje="ngForm" [formGroup]="mensajeForm" class="form">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              placeholder="Ingrese su email"
+            />
+            <mat-error
+              *ngIf="mensajeForm.controls['email'].hasError('required')"
+              >Campo requerido</mat-error
+            >
+            <mat-error *ngIf="mensajeForm.controls['email'].hasError('email')"
+              >Debe ser un email valido</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Edad</mat-label>
+            <input
+              matInput
+              min="0"
+              type="number"
+              formControlName="edad"
+              placeholder="Ingrese su edad"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input
+              matInput
+              formControlName="nombre"
+              placeholder="Ingrese el nombre"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input
+              matInput
+              formControlName="apellido"
+              placeholder="Ingrese el apellido"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Alias</mat-label>
+            <input
+              matInput
+              formControlName="alias"
+              placeholder="Ingrese el alias"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Avatar</mat-label>
+            <input
+              matInput
+              formControlName="avatar"
+              placeholder="Ingrese el avatar"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Mensaje</mat-label>
+            <textarea
+              matInput
+              formControlName="mensaje"
+              placeholder="Su mensaje..."
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button
+            (click)="enviarMensaje()"
+            [disabled]="!mensajeForm.valid"
+            mat-raised-button
+            class="float-end"
+            color="primary"
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col">
+        <h3>Mensajes</h3>
+        <ul style="list-style-type: none">
+          <li *ngFor="let mensaje of mensajes">
+            <span style="color: blue; font-weight: bold" class="me-1">{{
+              mensaje.email
+            }}</span>
+            <span style="color: brown" class="me-1"
+              >[{{ mensaje.fecha }}]:</span
+            >
+            <span style="color: green; font-style: italic">{{
+              mensaje.mensaje
+            }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
