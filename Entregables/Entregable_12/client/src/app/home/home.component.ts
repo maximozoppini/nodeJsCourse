@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, of, Subject } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { MensajesService } from '../mensajes.service';
+import { ProcessService } from '../process.service';
 import { ProductoService } from '../producto.service';
 
 @Component({
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public mensajes: any = [{}];
   public displayedColumns: string[] = ['title', 'price', 'thumbnail'];
   public username!: string;
+  public infoProcess!: string;
 
   @ViewChild('form') form!: NgForm;
   @ViewChild('formMensaje') formMensaje!: NgForm;
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private serviceProducto: ProductoService,
     private serviceMensajes: MensajesService,
     private authService: AuthService,
+    private processService: ProcessService,
     private router: Router
   ) {}
 
@@ -46,6 +49,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         console.log('data', data);
         this.username = data?.username;
       });
+
+    this.processService.getInfo().subscribe((data) => {
+      console.log(data);
+      this.infoProcess = `carpeta: ${data[0].carpeta}, memoria: ${data[0].memoria}, path: ${data[0].path}, pid: ${data[0].pid}, SO: ${data[0].sistemaOperativo}, version: ${data[0].version}`;
+    });
 
     this.productoForm = this.formBuilder.group({
       title: ['', Validators.required],
