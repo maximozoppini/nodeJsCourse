@@ -2,12 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const bcrypt = require("bcrypt");
 
 require("dotenv").config();
 
+const bcrypt = require("bcrypt");
+const yargs = require("yargs");
+
 const MongoDBStore = require("connect-mongodb-session")(session);
 const { Server: HttpServer } = require("http");
+const { routerProcess } = require("./routes/routerProcess");
 const { routerSession } = require("./routes/routerSession");
 const { UserMongoDAO } = require("./daos/users/userMongo.dao");
 const userModel = require("./models/user.model");
@@ -17,7 +20,10 @@ const LocalStrategy = require("passport-local").Strategy;
 
 const app = express();
 const httpServer = new HttpServer(app);
-const userDao = new UserMongoDAO(process.env.MONGODBURL, userModel);
+const userDao = new UserMongoDAO(
+  "mongodb://localhost:27017/desafio12",
+  userModel
+);
 
 app.use(
   cors({
@@ -51,8 +57,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//router para session
+//router para session y process
 app.use(routerSession);
+app.use(routerProcess);
 
 //passport
 passport.use(
@@ -109,7 +116,22 @@ function isValidPassword(user, password) {
   return bcrypt.compareSync(password, user.password);
 }
 
-const connectedServer = httpServer.listen(process.env.PORT || 8081, () => {
+/*
+  - escucha de parametros con yargs
+*/
+const args = yargs(process.argv.slice(2))
+  .alias({
+    m: "modo",
+    p: "puerto",
+    d: "debug",
+  })
+  .default({
+    modo: "prod",
+    puerto: 8080,
+    debug: false,
+  }).argv;
+
+const connectedServer = httpServer.listen(args.p, () => {
   console.log(
     `server conectado en el puerto: ${connectedServer.address().port}`
   );
