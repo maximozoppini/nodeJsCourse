@@ -1,0 +1,196 @@
+Statistical profiling result from random-log-proc-v1.log, (6057 ticks, 466 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+   1250   20.6%          /usr/lib/system/libsystem_malloc.dylib
+    113    1.9%          /usr/lib/libc++abi.dylib
+     83    1.4%          /usr/lib/system/libsystem_platform.dylib
+      9    0.1%          /usr/lib/system/libsystem_kernel.dylib
+      6    0.1%          /usr/lib/system/libsystem_pthread.dylib
+      3    0.0%          /usr/lib/libc++.1.dylib
+      2    0.0%          /usr/lib/system/libsystem_c.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+    352    5.8%    7.7%  LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+      1    0.0%    0.0%  Function: ^pushAsyncContext node:internal/async_hooks:539:26
+
+ [C++]:
+   ticks  total  nonlib   name
+   3395   56.1%   73.9%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+    122    2.0%    2.7%  T __simple_getenv
+    121    2.0%    2.6%  t __os_once_gate_broadcast
+     56    0.9%    1.2%  t __os_once_gate_wait
+     21    0.3%    0.5%  T _OSAtomicIncrement32
+     14    0.2%    0.3%  T _mach_port_type
+     11    0.2%    0.2%  T _semaphore_destroy
+     10    0.2%    0.2%  T _OSAtomicDecrement32
+      5    0.1%    0.1%  T _mach_get_times
+      4    0.1%    0.1%  T _posix_spawnattr_setmacpolicyinfo_np
+      3    0.0%    0.1%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      3    0.0%    0.1%  t __posix_spawn_file_actions_grow
+      2    0.0%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      2    0.0%    0.0%  T _mach_port_allocate
+      1    0.0%    0.0%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T _necp_client_action
+      1    0.0%    0.0%  T ___pthread_init
+
+ [Summary]:
+   ticks  total  nonlib   name
+    353    5.8%    7.7%  JavaScript
+   3772   62.3%   82.2%  C++
+     75    1.2%    1.6%  GC
+   1466   24.2%          Shared libraries
+    466    7.7%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   3358   90.9%   55.4%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+    122    3.3%    2.0%  T __simple_getenv
+    118    3.2%    1.9%  t __os_once_gate_broadcast
+     56    1.5%    0.9%  t __os_once_gate_wait
+     21    0.6%    0.3%  T _OSAtomicIncrement32
+     10    0.3%    0.2%  T _OSAtomicDecrement32
+      3    0.1%    0.0%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+      2    0.1%    0.0%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+      2    0.1%    0.0%  T _semaphore_destroy
+      1    0.0%    0.0%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   3395   56.1%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+   2910   85.7%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+   2876   98.8%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+   2786   96.9%        Function: ^emit node:events:460:44
+   2786  100.0%          Function: ^emit node:internal/child_process:937:16
+   2786  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     90    3.1%        LazyCompile: ~emit node:events:460:44
+     70   77.8%          Function: ^emit node:internal/child_process:937:16
+     70  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     20   22.2%          LazyCompile: ~emit node:internal/child_process:937:16
+     20  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+     34    1.2%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+     34  100.0%        LazyCompile: ~emit node:events:460:44
+     34  100.0%          LazyCompile: ~emit node:internal/child_process:937:16
+     34  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+    349   10.3%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+    348   99.7%      LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    348  100.0%        Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    342   98.3%          Function: ^emit node:events:460:44
+    342  100.0%            Function: ^emit node:internal/child_process:937:16
+      6    1.7%          LazyCompile: ~emit node:events:460:44
+      4   66.7%            LazyCompile: ~emit node:internal/child_process:937:16
+      2   33.3%            Function: ^emit node:internal/child_process:937:16
+     59    1.7%    Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+     57   96.6%      Function: ^emit node:events:460:44
+     57  100.0%        Function: ^emit node:internal/child_process:937:16
+     57  100.0%          Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      2    3.4%      LazyCompile: ~emit node:events:460:44
+      1   50.0%        LazyCompile: ~emit node:internal/child_process:937:16
+      1  100.0%          LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1   50.0%        Function: ^emit node:internal/child_process:937:16
+      1  100.0%          Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+
+   1250   20.6%  /usr/lib/system/libsystem_malloc.dylib
+   1246   99.7%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+   1232   98.9%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+   1199   97.3%        Function: ^emit node:events:460:44
+   1199  100.0%          Function: ^emit node:internal/child_process:937:16
+   1199  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     33    2.7%        LazyCompile: ~emit node:events:460:44
+     23   69.7%          Function: ^emit node:internal/child_process:937:16
+     23  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     10   30.3%          LazyCompile: ~emit node:internal/child_process:937:16
+     10  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+     14    1.1%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+     14  100.0%        LazyCompile: ~emit node:events:460:44
+     14  100.0%          LazyCompile: ~emit node:internal/child_process:937:16
+     14  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+
+    466    7.7%  UNKNOWN
+    464   99.6%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    459   98.9%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    446   97.2%        Function: ^emit node:events:460:44
+    446  100.0%          Function: ^emit node:internal/child_process:937:16
+    446  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     13    2.8%        LazyCompile: ~emit node:events:460:44
+     10   76.9%          Function: ^emit node:internal/child_process:937:16
+     10  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      3   23.1%          LazyCompile: ~emit node:internal/child_process:937:16
+      3  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      5    1.1%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+      5  100.0%        LazyCompile: ~emit node:events:460:44
+      5  100.0%          LazyCompile: ~emit node:internal/child_process:937:16
+      5  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+
+    352    5.8%  LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    312   88.6%    Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    298   95.5%      Function: ^emit node:events:460:44
+    298  100.0%        Function: ^emit node:internal/child_process:937:16
+    298  100.0%          Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+     14    4.5%      LazyCompile: ~emit node:events:460:44
+      8   57.1%        Function: ^emit node:internal/child_process:937:16
+      8  100.0%          Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      6   42.9%        LazyCompile: ~emit node:internal/child_process:937:16
+      6  100.0%          LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+     39   11.1%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+     39  100.0%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+     39  100.0%        Function: ^emit node:events:460:44
+     39  100.0%          Function: ^emit node:internal/child_process:937:16
+     39  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+
+    122    2.0%  T __simple_getenv
+    120   98.4%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    119   99.2%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    118   99.2%        Function: ^emit node:events:460:44
+    118  100.0%          Function: ^emit node:internal/child_process:937:16
+    118  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+
+    121    2.0%  t __os_once_gate_broadcast
+    118   97.5%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    115   97.5%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    111   96.5%        Function: ^emit node:events:460:44
+    111  100.0%          Function: ^emit node:internal/child_process:937:16
+    111  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      4    3.5%        LazyCompile: ~emit node:events:460:44
+      3   75.0%          Function: ^emit node:internal/child_process:937:16
+      3  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      1   25.0%          LazyCompile: ~emit node:internal/child_process:937:16
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      3    2.5%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+      3  100.0%        LazyCompile: ~emit node:events:460:44
+      3  100.0%          LazyCompile: ~emit node:internal/child_process:937:16
+      3  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+
+    113    1.9%  /usr/lib/libc++abi.dylib
+    113  100.0%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+    113  100.0%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+    109   96.5%        Function: ^emit node:events:460:44
+    109  100.0%          Function: ^emit node:internal/child_process:937:16
+    109  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      4    3.5%        LazyCompile: ~emit node:events:460:44
+      3   75.0%          Function: ^emit node:internal/child_process:937:16
+      3  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      1   25.0%          LazyCompile: ~emit node:internal/child_process:937:16
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+
+     83    1.4%  /usr/lib/system/libsystem_platform.dylib
+     83  100.0%    LazyCompile: *random /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:1:16
+     82   98.8%      Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+     79   96.3%        Function: ^emit node:events:460:44
+     79  100.0%          Function: ^emit node:internal/child_process:937:16
+     79  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      3    3.7%        LazyCompile: ~emit node:events:460:44
+      2   66.7%          LazyCompile: ~emit node:internal/child_process:937:16
+      2  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1   33.3%          Function: ^emit node:internal/child_process:937:16
+      1  100.0%            Function: ^processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.2%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/child.js:14:23
+      1  100.0%        LazyCompile: ~emit node:events:460:44
+      1  100.0%          LazyCompile: ~emit node:internal/child_process:937:16
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+
