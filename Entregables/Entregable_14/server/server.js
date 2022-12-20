@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-
 require("dotenv").config();
 
 const bcrypt = require("bcrypt");
@@ -13,15 +12,13 @@ const { routerProcess } = require("./routes/routerProcess");
 const { routerSession } = require("./routes/routerSession");
 const { UserMongoDAO } = require("./daos/users/userMongo.dao");
 const userModel = require("./models/user.model");
+const defaultLogger = require("./logger");
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 const app = express();
-const userDao = new UserMongoDAO(
-  "mongodb://localhost:27017/desafio13",
-  userModel
-);
+const userDao = new UserMongoDAO(process.env.MONGODBURL, userModel);
 
 app.use(
   cors({
@@ -37,7 +34,6 @@ app.use(
     credentials: true,
   })
 );
-//app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -68,6 +64,17 @@ app.use(passport.session());
 app.use(routerSession);
 app.use(routerProcess);
 
+//middelware para loguear toda consulta
+app.use((req, res, next) => {
+  defaultLogger.info(`Ruta: ${req.url}, metodo: ${req.method}`);
+  next();
+});
+app.use("*", (req, res) => {
+  defaultLogger.warn("Ruta incorrecta: " + req.url);
+  defaultLogger.info("Ruta incorrecta: " + req.url);
+  res.send("ruta incorrecta");
+});
+
 //passport
 passport.use(
   "register",
@@ -85,9 +92,11 @@ passport.use(
       });
 
       if (newUser) {
+        defaultLogger.info("registracion existosa");
         return done(null, newUser);
       }
     } catch (e) {
+      defaultLogger.error("error en la registracion");
       return done(e);
     }
   })
@@ -98,13 +107,17 @@ passport.use(
     try {
       let user = await userDao.getDocument({ username });
       if (!user) {
+        defaultLogger.warn("usuario inexistente");
         return done(null, false, { message: "usuario inexistente" });
       }
       if (!isValidPassword(user, password)) {
+        defaultLogger.warn("constraseña incorrecta");
         return done(null, false, { message: "contraseña incorrecta" });
       }
+      defaultLogger.info("logueo exitoso");
       return done(null, user);
     } catch (e) {
+      defaultLogger.error("error en el logueo");
       return done(e);
     }
   })

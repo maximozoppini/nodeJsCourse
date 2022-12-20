@@ -3,6 +3,7 @@ const { fork } = require("child_process");
 
 const forked = fork("./child.js");
 const routerProcess = express.Router();
+const defaultLogger = require("../logger");
 
 routerProcess.get("/info", (req, res) => {
   const info = [
@@ -17,8 +18,11 @@ routerProcess.get("/info", (req, res) => {
     },
   ];
   if (info) {
+    defaultLogger.info("llamada al endpoint Info");
     res.status(200).json(info);
   } else {
+    defaultLogger.info("info not found");
+    defaultLogger.warn("info not found");
     res.status(404).send({ message: "Not found" });
   }
 });

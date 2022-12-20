@@ -1,13 +1,17 @@
 const express = require("express");
 const { faker } = require("@faker-js/faker");
 const passport = require("passport");
+const defaultLogger = require("../logger");
 
 const routerSession = express.Router();
 
 const isLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
+    defaultLogger.info("usuario autenticado");
     return next();
   }
+  defaultLogger.info("usuario no autenticado");
+  defaultLogger.warn("usuario no autenticado");
   return res
     .status(401)
     .json({ statusCode: 400, message: "not authenticated" });
