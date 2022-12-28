@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Observable, of } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ export class ProductoService {
   }
 
   getTestProducts(): Observable<any> {
-    return this.httpClient.get('http://localhost:8081/productos-test/', {
+    return this.httpClient.get(`${environment.serverurl}productos-test/`, {
       withCredentials: true,
     });
   }

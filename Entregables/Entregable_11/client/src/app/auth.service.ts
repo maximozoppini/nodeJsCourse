@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class AuthService {
 
   login(user: any): Observable<any> {
     return this.httpClient.post(
-      'http://localhost:8081/login',
+      `${environment.serverurl}login`,
       {
         username: user.username,
         password: user.password,
@@ -22,20 +23,20 @@ export class AuthService {
   }
 
   isLogged(): Observable<any> {
-    return this.httpClient.get('http://localhost:8081/login', {
+    return this.httpClient.get(`${environment.serverurl}login`, {
       withCredentials: true,
     });
   }
 
   logout(): Observable<any> {
-    return this.httpClient.get('http://localhost:8081/logout', {
+    return this.httpClient.get(`${environment.serverurl}logout`, {
       withCredentials: true,
     });
   }
 
   signUp(user: any): Observable<any> {
     return this.httpClient.post(
-      'http://localhost:8081/register',
+      `${environment.serverurl}register`,
       {
         username: user.username,
         password: user.password,
