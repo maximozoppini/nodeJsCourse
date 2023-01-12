@@ -6,7 +6,11 @@ class FirebaseContainer {
     this.collectionName = collection;
     if (!firebase.apps.length) {
       firebase.initializeApp({
-        credential: firebase.credential.cert(config_file),
+        credential: firebase.credential.cert({
+          projectId: process.env.FIREBASE_CONFIG_PROJECT_ID,
+          private_key: process.env.FIREBASE_CONFIG_PRIVATE_KEY,
+          client_email: process.env.FIREBASE_CONFIG_CLIENT_EMAIL,
+        }),
       });
     }
     this.db = firebase.firestore();
