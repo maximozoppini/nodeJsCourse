@@ -1,5 +1,5 @@
 const firebase = require("firebase-admin");
-const config_file = require(process.env.FIREBASE_CONFIG_FILE);
+//const config_file = require(process.env.FIREBASE_CONFIG_FILE);
 
 class FirebaseContainer {
   constructor(collection) {
