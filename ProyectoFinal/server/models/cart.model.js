@@ -7,6 +7,7 @@ const cartSchema = new Schema({
       cantidad: Number,
     },
   ],
+  user: { type: Schema.Types.ObjectId, ref: "usuarios" },
   timeStamp: { type: Date, default: Date.now },
 });
 

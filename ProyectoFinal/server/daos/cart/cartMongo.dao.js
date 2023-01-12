@@ -1,22 +1,31 @@
 const { MongoDbContainer } = require("../../containers/mongoDbContainer");
 const cartModel = require("../../models/cart.model");
+const userFactory = require("../users/user.dao.factory");
+const {
+  sendPurchaseMsgToAdmin,
+  sendPurchaseMsgToUser,
+} = require("../../lib/mail.controller");
 
 class CartMongoDAO extends MongoDbContainer {
   constructor(url, model) {
     super(url, model);
+    this.userDao = userFactory(process.env.DAOTYPE);
   }
 
   async getProducts(id) {
     return await super.getById(id)?.productos;
   }
 
-  async save() {
-    const cart = await super.save(new cartModel());
+  async save(userId) {
+    const cart = await super.save(new cartModel({ user: userId }));
     return cart;
   }
 
-  async saveProduct(cartId, product) {
-    let cart = await super.getById(cartId);
+  async saveProduct(userId, cartId, product) {
+    let cart = userId
+      ? await super.getDocument({ user: userId })
+      : await super.getById(cartId);
+
     if (cart === null) {
       return null;
     }
@@ -33,7 +42,7 @@ class CartMongoDAO extends MongoDbContainer {
       return await super.findOneAndUpdate(filter, update, options);
     } else {
       cart.productos.push({ producto: product.id, cantidad: product.cantidad });
-      return await super.update(cartId, cart);
+      return await super.update(cart.id, cart);
     }
   }
 
@@ -51,6 +60,23 @@ class CartMongoDAO extends MongoDbContainer {
         productos: { _id: existingProd._id },
       },
     });
+  }
+
+  async buyCart(userId) {
+    let user = await this.userDao.getById(userId);
+    let cart = await super.getDocument({ user: userId });
+    if (cart === null) {
+      return null;
+    }
+    if (cart.productos.length == 0) {
+      return "no hay productos en el carrito";
+    }
+    if ((await this.deleteById(cart.id)) == null) {
+      return null;
+    }
+    sendPurchaseMsgToAdmin(user);
+    sendPurchaseMsgToUser(user);
+    return cart;
   }
 }
 

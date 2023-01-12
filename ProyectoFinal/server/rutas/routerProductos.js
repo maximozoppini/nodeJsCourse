@@ -1,11 +1,17 @@
 const express = require("express");
 const productFactory = require("../daos/product/product.dao.factory");
-var index = require("../index");
 
 const routerProduct = express.Router();
 const productDao = productFactory(process.env.DAOTYPE);
 
-routerProduct.use(handleErrors);
+const isLoggedIn = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  return res
+    .status(401)
+    .json({ statusCode: 400, message: "not authenticated" });
+};
 
 routerProduct.get("/", async (req, res, next) => {
   try {
@@ -28,7 +34,7 @@ routerProduct.get("/:id", async (req, res, next) => {
   }
 });
 
-routerProduct.post("/", checkUser, async (req, res, next) => {
+routerProduct.post("/", isLoggedIn, async (req, res, next) => {
   try {
     if (
       req.body.nombre &&
@@ -50,7 +56,7 @@ routerProduct.post("/", checkUser, async (req, res, next) => {
   }
 });
 
-routerProduct.put("/:id", checkUser, async (req, res, next) => {
+routerProduct.put("/:id", isLoggedIn, async (req, res, next) => {
   try {
     if (
       req.body.nombre &&
@@ -80,7 +86,7 @@ routerProduct.put("/:id", checkUser, async (req, res, next) => {
   }
 });
 
-routerProduct.delete("/:id", checkUser, async (req, res, next) => {
+routerProduct.delete("/:id", isLoggedIn, async (req, res, next) => {
   try {
     if (req.params.id === undefined || req.params.id === null) {
       res.status(400).json({ error: "parametro incorrecto" });
@@ -98,7 +104,7 @@ routerProduct.delete("/:id", checkUser, async (req, res, next) => {
   }
 });
 
-routerProduct.delete("/", checkUser, async (req, res, next) => {
+routerProduct.delete("/", isLoggedIn, async (req, res, next) => {
   try {
     const result = await productDao.deleteAll();
     res
@@ -112,20 +118,5 @@ routerProduct.delete("/", checkUser, async (req, res, next) => {
     next(error);
   }
 });
-
-function checkUser(req, res, next) {
-  if (!index.logged) {
-    res.status(401).json({
-      error: -1,
-      descripcion: `ruta ${req.baseUrl} método ${req.method} no autorizada`,
-    });
-  }
-  next();
-}
-
-function handleErrors(err, req, res, next) {
-  console.log(err);
-  res.status(500).send("An internal server error occurred");
-}
 
 module.exports = { routerProduct };

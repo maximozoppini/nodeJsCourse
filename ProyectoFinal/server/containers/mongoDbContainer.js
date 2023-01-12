@@ -4,12 +4,12 @@ class MongoDbContainer {
   constructor(url, model) {
     this.url = url;
     this.mongoDb = mongoose.connect;
+    this.mongoDb(this.url);
     this.model = model;
   }
 
   async save(newModel) {
     try {
-      await this.mongoDb(this.url);
       let result = await newModel.save();
       return result;
     } catch (error) {
@@ -19,7 +19,6 @@ class MongoDbContainer {
 
   async update(id, newObj) {
     try {
-      await this.mongoDb(this.url);
       let result = await this.model.findByIdAndUpdate(id, newObj);
       return result;
     } catch (error) {
@@ -29,7 +28,6 @@ class MongoDbContainer {
 
   async findOneAndUpdate(filter, newObj, options = null) {
     try {
-      await this.mongoDb(this.url);
       let result = await this.model.findOneAndUpdate(filter, newObj, options);
       return result;
     } catch (error) {
@@ -39,7 +37,6 @@ class MongoDbContainer {
 
   async getById(id) {
     try {
-      await this.mongoDb(this.url);
       let result = await this.model.findById(id);
       return result ?? null;
     } catch (error) {
@@ -47,9 +44,16 @@ class MongoDbContainer {
     }
   }
 
+  async getDocument(filter) {
+    try {
+      return (await this.model.findOne(filter)) ?? null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   async getAll() {
     try {
-      await this.mongoDb(this.url);
       let result = await this.model.find();
       return result ?? null;
     } catch (error) {
@@ -59,7 +63,6 @@ class MongoDbContainer {
 
   async deleteById(id) {
     try {
-      await this.mongoDb(this.url);
       let result = await this.model.findByIdAndDelete(id);
       return result ?? null;
     } catch (error) {
@@ -69,7 +72,6 @@ class MongoDbContainer {
 
   async deleteAll() {
     try {
-      await this.mongoDb(this.url);
       return await this.model.deleteMany({});
     } catch (error) {
       throw new Error(error);
