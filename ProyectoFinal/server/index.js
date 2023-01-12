@@ -53,11 +53,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//root de la app
-// app.get("/", (req, res) => {
-//   res.status(200).json({ msg: "proyecto final zoppini" });
-// });
-
 //router para logueo
 app.use(routerUsuario);
 //router para los productos
@@ -93,8 +88,6 @@ passport.use(
           phone: req.body.phone,
           avatar: req.body.avatar,
         });
-        console.log("🚀 ~ file: index.js:96 ~ newUser", newUser);
-
         if (newUser) {
           await sendRegEmailToAdmin(newUser);
           await sendRegEmailToUser(username, req.body.name);
