@@ -3,7 +3,7 @@ const { fork } = require("child_process");
 
 const forked = fork("./child.js");
 const routerProcess = express.Router();
-const defaultLogger = require("../logger");
+const defaultLogger = require("../config/logger");
 
 routerProcess.get("/info", (req, res) => {
   const info = [
