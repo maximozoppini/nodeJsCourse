@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 const { routerProcess } = require("./routes/routerProcess");
-const { routerSession } = require("./routes/routerSession");
+const { routerSession } = require("./routes/user.router");
 
 const MongoDBStore = require("connect-mongodb-session")(session);
 const defaultLogger = require("./config/logger");
