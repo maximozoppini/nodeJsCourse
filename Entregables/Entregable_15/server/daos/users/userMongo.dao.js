@@ -1,9 +1,8 @@
 const { MongoDbContainer } = require("../../containers/mongoDbContainer");
 const userModel = require("../../models/user.model");
-
 class UserMongoDAO extends MongoDbContainer {
-  constructor(url, model) {
-    super(url, model);
+  constructor(url) {
+    super(url, userModel);
   }
 
   async save(user) {
