@@ -22,7 +22,11 @@ const { routerUsuario } = require("./rutas/routerUsuario");
 
 const userDao = userFactory(process.env.DAOTYPE);
 const passport = require("passport");
+const { ExtractJwt } = require("passport-jwt");
 const LocalStrategy = require("passport-local").Strategy;
+const JWTStragety = require("passport-jwt").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const app = express();
 app.use(express.json());
@@ -115,6 +119,95 @@ passport.use(
       return done(e);
     }
   })
+);
+
+passport.use(
+  "jwt",
+  new JWTStragety(
+    {
+      secretOrKey: process.env.JWT_PK,
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    },
+    async (token, done) => {
+      try {
+        return done(null, token);
+      } catch (error) {
+        done(error);
+      }
+    }
+  )
+);
+
+passport.use(
+  new FacebookStrategy(
+    {
+      clientID: process.env.FACEBOOK_APP_ID,
+      clientSecret: process.env.FACEBOOK_APP_SECRET,
+      callbackURL: "http://localhost:8080/auth/facebook",
+      profileFields: ["id", "displayName", "link", "photos", "emails"],
+    },
+    async function (accessToken, refreshToken, profile, done) {
+      try {
+        //----- Revisando que el usuario no existe
+        let user = await userDao.getDocument({
+          username: profile.emails[0].value,
+        });
+        if (user) {
+          return done(null, user);
+        }
+        //create user if not found
+        let newUser = await userDao.save({
+          username: profile.emails[0].value,
+          name: profile.displayName,
+          avatar: profile.photos[0].value,
+          social_id: profile.id,
+        });
+        if (newUser) {
+          await sendRegEmailToAdmin(newUser);
+          await sendRegEmailToUser(username, req.body.name);
+          return done(null, newUser);
+        }
+      } catch (e) {
+        return done(e);
+      }
+    }
+  )
+);
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://localhost:8080/auth/google",
+      profileFields: ["id", "displayName", "link", "photos", "emails"],
+    },
+    async function (accessToken, refreshToken, profile, done) {
+      try {
+        //----- Revisando que el usuario no existe
+        let user = await userDao.getDocument({
+          username: profile.emails[0].value,
+        });
+        if (user) {
+          return done(null, user);
+        }
+        //create user if not found
+        let newUser = await userDao.save({
+          username: profile.emails[0].value,
+          name: profile.displayName,
+          avatar: profile.photos[0].value,
+          social_id: profile.id,
+        });
+        if (newUser) {
+          await sendRegEmailToAdmin(newUser);
+          await sendRegEmailToUser(username, req.body.name);
+          return done(null, newUser);
+        }
+      } catch (e) {
+        return done(e);
+      }
+    }
+  )
 );
 
 //serializar y deserializar
