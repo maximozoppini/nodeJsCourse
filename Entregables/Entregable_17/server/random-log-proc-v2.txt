@@ -1,0 +1,1576 @@
+Statistical profiling result from random-log-proc-v2.log, (3723 ticks, 24 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     95    2.6%          /usr/lib/system/libsystem_pthread.dylib
+     75    2.0%          /usr/lib/system/libsystem_kernel.dylib
+     64    1.7%          /usr/lib/system/libsystem_c.dylib
+     62    1.7%          /usr/lib/libc++.1.dylib
+     30    0.8%          /usr/lib/system/libsystem_malloc.dylib
+      4    0.1%          /usr/lib/system/libsystem_platform.dylib
+      1    0.0%          /usr/lib/system/libdyld.dylib
+      1    0.0%          /usr/lib/libobjc.A.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     24    0.6%    0.7%  LazyCompile: *readPackage node:internal/modules/cjs/loader:301:21
+     19    0.5%    0.6%  LazyCompile: *<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:33:24
+      7    0.2%    0.2%  LazyCompile: *resolve node:path:1091:10
+      7    0.2%    0.2%  LazyCompile: *emit node:events:460:44
+      4    0.1%    0.1%  LazyCompile: *Module._nodeModulePaths node:internal/modules/cjs/loader:640:37
+      3    0.1%    0.1%  LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      2    0.1%    0.1%  LazyCompile: *realpathSync node:fs:2460:22
+      2    0.1%    0.1%  Function: ^emit node:events:460:44
+      1    0.0%    0.0%  RegExp: =+$
+      1    0.0%    0.0%  LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    0.0%    0.0%  LazyCompile: *normalizeString node:path:66:25
+      1    0.0%    0.0%  LazyCompile: *Module._resolveLookupPaths node:internal/modules/cjs/loader:678:38
+      1    0.0%    0.0%  LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1    0.0%    0.0%  Function: ^write node:buffer:598:12
+      1    0.0%    0.0%  Function: ^tryFile node:internal/modules/cjs/loader:395:17
+      1    0.0%    0.0%  Function: ^toString node:internal/url:743:11
+      1    0.0%    0.0%  Function: ^target._send node:internal/child_process:751:26
+      1    0.0%    0.0%  Function: ^setStreamTimeout node:internal/stream_base_commons:237:26
+      1    0.0%    0.0%  Function: ^resolve node:path:1091:10
+      1    0.0%    0.0%  Function: ^readPackageScope node:internal/modules/cjs/loader:332:26
+      1    0.0%    0.0%  Function: ^readPackage node:internal/modules/cjs/loader:301:21
+      1    0.0%    0.0%  Function: ^pathToFileURL node:internal/url:1472:23
+      1    0.0%    0.0%  Function: ^listenerCount node:events:840:23
+      1    0.0%    0.0%  Function: ^isInt32 node:internal/validators:37:17
+      1    0.0%    0.0%  Function: ^isFull node:internal/fixed_queue:71:9
+      1    0.0%    0.0%  Function: ^isEncoding node:buffer:535:40
+      1    0.0%    0.0%  Function: ^isAbsolute node:path:1156:13
+      1    0.0%    0.0%  Function: ^generateSocketListenerWrapper node:_http_server:1029:39
+      1    0.0%    0.0%  Function: ^error /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/serve-static/index.js:115:39
+      1    0.0%    0.0%  Function: ^destroyHooksExist node:internal/async_hooks:486:27
+      1    0.0%    0.0%  Function: ^deserializeObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:65:27
+      1    0.0%    0.0%  Function: ^createError /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/http-errors/index.js:49:22
+      1    0.0%    0.0%  Function: ^concat node:buffer:541:32
+      1    0.0%    0.0%  Function: ^applyHeaders /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/cors/lib/index.js:144:24
+      1    0.0%    0.0%  Function: ^afterWrite node:internal/streams/writable:489:20
+      1    0.0%    0.0%  Function: ^_addHeaderLine node:_http_incoming:382:24
+      1    0.0%    0.0%  Function: ^EventEmitter.init node:events:337:29
+
+ [C++]:
+   ticks  total  nonlib   name
+   1249   33.5%   36.8%  t __posix_spawn_file_actions_grow
+    972   26.1%   28.7%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+    388   10.4%   11.4%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+    218    5.9%    6.4%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+     88    2.4%    2.6%  T _semaphore_destroy
+     85    2.3%    2.5%  T _mach_vm_map
+     51    1.4%    1.5%  T _mach_get_times
+     32    0.9%    0.9%  T _mach_msg_server_once
+     28    0.8%    0.8%  t node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+     25    0.7%    0.7%  t node::fs::InternalModuleReadJSON(v8::FunctionCallbackInfo<v8::Value> const&)
+     24    0.6%    0.7%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+     14    0.4%    0.4%  t node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+     12    0.3%    0.4%  T __simple_getenv
+     11    0.3%    0.3%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+     11    0.3%    0.3%  T _kdebug_typefilter
+      7    0.2%    0.2%  T _mach_port_type
+      7    0.2%    0.2%  T _mach_port_allocate
+      5    0.1%    0.1%  t void node::Buffer::(anonymous namespace)::StringSlice<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.1%    0.1%  t ___pfz_setup
+      4    0.1%    0.1%  T node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.1%    0.1%  T _OSAtomicDecrement32
+      3    0.1%    0.1%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.1%    0.1%  t __os_once_gate_broadcast
+      2    0.1%    0.1%  t __os_once_gate_wait
+      2    0.1%    0.1%  T _task_dyld_process_info_notify_get
+      2    0.1%    0.1%  T _mach_msg_server
+      2    0.1%    0.1%  T __simple_putline
+      2    0.1%    0.1%  T __platform_strcmp
+      1    0.0%    0.0%  t std::__1::__hash_table<unsigned long, std::__1::hash<unsigned long>, std::__1::equal_to<unsigned long>, std::__1::allocator<unsigned long> >::remove(std::__1::__hash_const_iterator<std::__1::__hash_node<unsigned long, void*>*>)
+      1    0.0%    0.0%  t std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, void*>*> std::__1::__hash_table<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, std::__1::__unordered_map_hasher<node::FastStringKey, std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, node::FastStringKey::Hash, true>, std::__1::__unordered_map_equal<node::FastStringKey, std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, std::__1::equal_to<node::FastStringKey>, true>, std::__1::allocator<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> > > >::find<node::FastStringKey>(node::FastStringKey const&)
+      1    0.0%    0.0%  t node::fs::FStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t node::Environment::StartProfilerIdleNotifier()::$_6::__invoke(uv_check_s*)
+      1    0.0%    0.0%  t node::Buffer::(anonymous namespace)::Compare(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::InternalCallbackScope::InternalCallbackScope(node::Environment*, v8::Local<v8::Object>, node::async_context const&, int)
+      1    0.0%    0.0%  T node::Environment::RunTimers(uv_timer_s*)
+      1    0.0%    0.0%  T _writev$NOCANCEL
+      1    0.0%    0.0%  T _write
+      1    0.0%    0.0%  T _semaphore_create
+      1    0.0%    0.0%  T _os_unfair_recursive_lock_unlock
+      1    0.0%    0.0%  T _os_unfair_recursive_lock_lock_with_options
+      1    0.0%    0.0%  T _necp_client_action
+      1    0.0%    0.0%  T _OSAtomicIncrement32
+
+ [Summary]:
+   ticks  total  nonlib   name
+     97    2.6%    2.9%  JavaScript
+   3270   87.8%   96.4%  C++
+    220    5.9%    6.5%  GC
+    332    8.9%          Shared libraries
+     24    0.6%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+    837   46.8%   22.5%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+    388   21.7%   10.4%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+    218   12.2%    5.9%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+     81    4.5%    2.2%  T _mach_vm_map
+     79    4.4%    2.1%  T _semaphore_destroy
+     32    1.8%    0.9%  T _mach_msg_server_once
+     28    1.6%    0.8%  t node::fs::Open(v8::FunctionCallbackInfo<v8::Value> const&)
+     25    1.4%    0.7%  t node::fs::InternalModuleReadJSON(v8::FunctionCallbackInfo<v8::Value> const&)
+     24    1.3%    0.6%  t std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long)
+     14    0.8%    0.4%  t node::fs::InternalModuleStat(v8::FunctionCallbackInfo<v8::Value> const&)
+     12    0.7%    0.3%  T __simple_getenv
+     11    0.6%    0.3%  t std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char)
+     11    0.6%    0.3%  T _kdebug_typefilter
+      5    0.3%    0.1%  t void node::Buffer::(anonymous namespace)::StringSlice<(node::encoding)1>(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.2%    0.1%  T node::fs::Close(v8::FunctionCallbackInfo<v8::Value> const&)
+      4    0.2%    0.1%  T _OSAtomicDecrement32
+      3    0.2%    0.1%  t node::fs::Stat(v8::FunctionCallbackInfo<v8::Value> const&)
+      3    0.2%    0.1%  T _mach_get_times
+      2    0.1%    0.1%  T __simple_putline
+      1    0.1%    0.0%  t std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, void*>*> std::__1::__hash_table<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, std::__1::__unordered_map_hasher<node::FastStringKey, std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, node::FastStringKey::Hash, true>, std::__1::__unordered_map_equal<node::FastStringKey, std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> >, std::__1::equal_to<node::FastStringKey>, true>, std::__1::allocator<std::__1::__hash_value_type<node::FastStringKey, node::BaseObjectPtrImpl<node::BaseObject, false> > > >::find<node::FastStringKey>(node::FastStringKey const&)
+      1    0.1%    0.0%  t node::fs::FStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.1%    0.0%  t node::Buffer::(anonymous namespace)::Compare(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.1%    0.0%  t __os_once_gate_broadcast
+      1    0.1%    0.0%  t ___pfz_setup
+      1    0.1%    0.0%  T node::binding::DLOpen(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.1%    0.0%  T _writev$NOCANCEL
+      1    0.1%    0.0%  T _os_unfair_recursive_lock_unlock
+      1    0.1%    0.0%  T _OSAtomicIncrement32
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   1249   33.5%  t __posix_spawn_file_actions_grow
+
+    972   26.1%  t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+     87    9.0%    LazyCompile: *compileFunction node:vm:316:25
+     80   92.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     80  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     51   63.7%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     34   66.7%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+     17   33.3%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+     29   36.3%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     29  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      7    8.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      7  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      7  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      7  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     74    7.6%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+     11   14.9%      LazyCompile: *realpathSync node:fs:2460:22
+      7   63.6%        Function: ^toRealPath node:internal/modules/cjs/loader:404:20
+      7  100.0%          Function: ^tryFile node:internal/modules/cjs/loader:395:17
+      7  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:411:23
+      4   36.4%        LazyCompile: *Module._findPath node:internal/modules/cjs/loader:505:28
+      4  100.0%          LazyCompile: *Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      3   75.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1   25.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+     10   13.5%      LazyCompile: *readPackage node:internal/modules/cjs/loader:301:21
+      9   90.0%        LazyCompile: *readPackageScope node:internal/modules/cjs/loader:332:26
+      6   66.7%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      5   83.3%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1   16.7%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      3   33.3%          Function: ^trySelf node:internal/modules/cjs/loader:452:17
+      3  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1   10.0%        LazyCompile: *Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      7    9.5%      Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+      7  100.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      7  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      7  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      6    8.1%      t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      2   33.3%        Function: ^stat node:internal/modules/cjs/loader:151:14
+      1   50.0%          Function: ^tryFile node:internal/modules/cjs/loader:395:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:411:23
+      1   50.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1   16.7%        LazyCompile: *compileFunction node:vm:316:25
+      1  100.0%          Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1   16.7%        Function: ^setHeader node:_http_outgoing:601:57
+      1  100.0%          Function: ^applyHeaders /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/cors/lib/index.js:144:24
+      1  100.0%            Function: ^cors /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/cors/lib/index.js:159:16
+      1   16.7%        Function: ^readPackageScope node:internal/modules/cjs/loader:332:26
+      1  100.0%          Function: ^trySelf node:internal/modules/cjs/loader:452:17
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1   16.7%        Function: ^readPackage node:internal/modules/cjs/loader:301:21
+      1  100.0%          Function: ^readPackageScope node:internal/modules/cjs/loader:332:26
+      1  100.0%            Function: ^trySelf node:internal/modules/cjs/loader:452:17
+      4    5.4%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:505:28
+      2   50.0%        LazyCompile: *Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      2  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      2  100.0%            LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      2   50.0%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      2  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      2  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      3    4.1%      Function: ^readPackage node:internal/modules/cjs/loader:301:21
+      2   66.7%        Function: ^readPackageScope node:internal/modules/cjs/loader:332:26
+      1   50.0%          LazyCompile: ~trySelf node:internal/modules/cjs/loader:452:17
+      1  100.0%            LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1   50.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1   33.3%        Function: ^resolveExports node:internal/modules/cjs/loader:483:24
+      1  100.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      3    4.1%      Function: ^channel.onread node:internal/child_process:602:28
+      2    2.7%      Function: ^realpathSync node:fs:2460:22
+      2  100.0%        Function: ^toRealPath node:internal/modules/cjs/loader:404:20
+      1   50.0%          Function: ^tryFile node:internal/modules/cjs/loader:395:17
+      1  100.0%            Function: ^tryExtensions node:internal/modules/cjs/loader:411:23
+      1   50.0%          Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+      1  100.0%            Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      2    2.7%      Function: ^parseChannelMessages node:internal/child_process/serialization:137:24
+      2  100.0%        t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      2  100.0%          Function: ^channel.onread node:internal/child_process:602:28
+      2    2.7%      Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1   50.0%        LazyCompile: ~read node:internal/modules/package_json_reader:16:14
+      1  100.0%          LazyCompile: ~readPackage node:internal/modules/cjs/loader:301:21
+      1  100.0%            LazyCompile: ~resolveExports node:internal/modules/cjs/loader:483:24
+      1   50.0%        Function: ~<anonymous> node:internal/modules/esm/get_format:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    1.4%      LazyCompile: ~selectServer /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/topology.js:254:17
+      1  100.0%        LazyCompile: ~connect /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/topology.js:155:12
+      1  100.0%          LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/mongo_client.js:136:49
+      1  100.0%            LazyCompile: ~<anonymous> node:internal/util:347:24
+      1    1.4%      LazyCompile: ~resolvePackageTargetString node:internal/modules/esm/resolve:499:36
+      1  100.0%        LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:567:30
+      1  100.0%          LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:567:30
+      1  100.0%            LazyCompile: ~resolvePackageTarget node:internal/modules/esm/resolve:567:30
+      1    1.4%      LazyCompile: ~populateMaps /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mime-types/index.js:154:23
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mime-types/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.4%      LazyCompile: ~populateConstructorExports /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/http-errors/index.js:258:37
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/http-errors/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.4%      LazyCompile: ~parse /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/dotenv/lib/main.js:11:16
+      1  100.0%        LazyCompile: ~config /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/dotenv/lib/main.js:58:17
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/server.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.4%      LazyCompile: ~parse /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bytes/index.js:141:15
+      1  100.0%        LazyCompile: ~urlencoded /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/body-parser/lib/types/urlencoded.js:43:21
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/server.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.4%      LazyCompile: ~merge /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/merge-descriptors/index.js:34:15
+      1  100.0%        LazyCompile: ~createApplication /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/express.js:37:27
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/server.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.4%      LazyCompile: ~latencyWindowReducer /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/server_selection.js:158:30
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/server_selection.js:192:12
+      1  100.0%          LazyCompile: ~processWaitQueue /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/topology.js:548:26
+      1  100.0%            LazyCompile: ~serverUpdateHandler /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/topology.js:321:24
+      1    1.4%      LazyCompile: ~isIPv6 node:internal/net:35:16
+      1  100.0%        LazyCompile: ~isIP node:internal/net:39:14
+      1  100.0%          LazyCompile: ~lookupAndConnect node:net:1076:26
+      1  100.0%            LazyCompile: ~Socket.connect node:net:1018:36
+      1    1.4%      LazyCompile: ~formatProperty node:internal/util/inspect:1883:24
+      1  100.0%        LazyCompile: ~formatRaw node:internal/util/inspect:828:19
+      1  100.0%          LazyCompile: ~formatValue node:internal/util/inspect:750:21
+      1  100.0%            LazyCompile: ~inspect node:internal/util/inspect:295:17
+      1    1.4%      LazyCompile: ~cache node:internal/http:19:15
+      1  100.0%        LazyCompile: ~utcDate node:internal/http:14:17
+      1  100.0%          LazyCompile: ~_storeHeader node:_http_outgoing:384:22
+      1  100.0%            LazyCompile: ~writeHead node:_http_server:292:19
+      1    1.4%      LazyCompile: ~baseIsNative /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/lodash.clonedeep/index.js:949:22
+      1  100.0%        LazyCompile: ~getNative /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/lodash.clonedeep/index.js:1178:19
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/lodash.clonedeep/index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.4%      LazyCompile: ~Module node:internal/modules/cjs/loader:172:16
+      1  100.0%        LazyCompile: ~Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%          LazyCompile: ~Module.require node:internal/modules/cjs/loader:1020:36
+      1  100.0%            LazyCompile: ~require node:internal/modules/cjs/helpers:101:31
+      1    1.4%      LazyCompile: *compileFunction node:vm:316:25
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.4%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mquery/lib/mquery.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.4%      Function: ^stat node:internal/modules/cjs/loader:151:14
+      1  100.0%        Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.4%      Function: ^parseQueryStringValues /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/qs/lib/parse.js:51:50
+      1  100.0%        Function: ^module.exports /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/qs/lib/parse.js:239:27
+      1  100.0%          Function: ^parseExtendedQueryString /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/utils.js:289:34
+      1  100.0%            Function: ^query /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/middleware/query.js:39:24
+      1    1.4%      Function: ^expressInit /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/middleware/init.js:29:30
+      1  100.0%        LazyCompile: *handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%          Function: ^trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      1  100.0%            LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      1    1.4%      Function: ^deserializeObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%        Function: ^deserialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:36:21
+      1  100.0%          Function: ^deserialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/bson.js:161:21
+      1  100.0%            Function: ^parse /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/commands.js:426:10
+      1    1.4%      Function: ^databaseNamespace /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:353:27
+      1  100.0%        Function: ^Msg /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/commands.js:317:16
+      1  100.0%          Function: ^command /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:251:12
+      1  100.0%            Function: ^measureRoundTripTime /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/monitor.js:288:30
+      1    1.4%      Function: ^_handles_method /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/route.js:58:59
+      1  100.0%        LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      1  100.0%          LazyCompile: *handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:136:31
+      1  100.0%            Function: ^router /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:46:18
+      1    1.4%      Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%        Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      1    1.4%      Function: ^HostAddress /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:762:16
+      1  100.0%        Function: ^fromString /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:820:22
+      1  100.0%          Function: ^get hostAddress /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/server_description.js:65:20
+      1  100.0%            Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/server.js:61:55
+      1    1.4%      Function: ^FastBuffer node:internal/buffer:958:14
+      1  100.0%        Function: ^allocate node:buffer:403:18
+      1  100.0%          Function: ^allocUnsafe node:buffer:378:42
+      1  100.0%            Function: ^tryCreateBuffer node:fs:423:25
+     44    4.5%    Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     37   84.1%      Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      6   16.2%        Function: ~<anonymous> node:http2:1:1
+      6  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      6  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      5   13.5%        Function: ~<anonymous> node:crypto:1:1
+      5  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      5  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      3    8.1%        Function: ~<anonymous> node:http:1:1
+      3  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3  100.0%            LazyCompile: ~compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      3    8.1%        Function: ~<anonymous> node:_http_client:1:1
+      3  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      2    5.4%        Function: ~<anonymous> node:tls:1:1
+      2  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      2    5.4%        Function: ~<anonymous> node:child_process:1:1
+      2  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1    2.7%        LazyCompile: ~lazyRequire node:internal/crypto/util:67:21
+      1  100.0%          LazyCompile: ~get node:crypto:294:8
+      1  100.0%            t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    2.7%        LazyCompile: ~lazyLoadStreams node:fs:2893:25
+      1  100.0%          LazyCompile: ~get ReadStream node:fs:3036:17
+      1  100.0%            t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    2.7%        Function: ~<anonymous> node:internal/modules/esm/translators:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/http2/core:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/http2/compat:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/crypto/hkdf:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:internal/child_process:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:https:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1    2.7%        Function: ~<anonymous> node:dgram:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:cluster:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1    2.7%        Function: ~<anonymous> node:assert:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      1    2.7%        Function: ~<anonymous> node:_tls_wrap:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:_tls_common:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    2.7%        Function: ~<anonymous> node:_http_common:1:1
+      1  100.0%          Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      7   15.9%      Function: ^compileForPublicLoader node:internal/bootstrap/loaders:263:25
+      7  100.0%        Function: ^loadNativeModule node:internal/modules/cjs/helpers:44:26
+      7  100.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      7  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+     42    4.3%    LazyCompile: *<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:33:24
+     42  100.0%      LazyCompile: *emit node:events:460:44
+     42  100.0%        Function: ^emit node:internal/child_process:937:16
+     42  100.0%          LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+     31    3.2%    LazyCompile: *emit node:events:460:44
+     29   93.5%      Function: ^emit node:internal/child_process:937:16
+     29  100.0%        LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    3.2%      Function: ^onFinish node:_http_outgoing:907:18
+      1  100.0%        Function: ^callback node:internal/streams/writable:552:44
+      1  100.0%          Function: ^afterWrite node:internal/streams/writable:489:20
+      1  100.0%            Function: ^afterWriteTick node:internal/streams/writable:484:24
+      1    3.2%      Function: ^_addListener node:events:541:22
+      1  100.0%        Function: ^addListener node:events:604:58
+      1  100.0%          Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:30:35
+      1  100.0%            LazyCompile: *handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+     17    1.7%    Function: ^emit node:internal/child_process:937:16
+     17  100.0%      LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+     16    1.6%    LazyCompile: *realpathSync node:fs:2460:22
+     11   68.8%      LazyCompile: *Module._findPath node:internal/modules/cjs/loader:505:28
+      6   54.5%        Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      5   83.3%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      5  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1   16.7%          LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      5   45.5%        LazyCompile: *Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      3   60.0%          Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      2   66.7%            LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      1   33.3%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      2   40.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      2  100.0%            LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      5   31.3%      Function: ^toRealPath node:internal/modules/cjs/loader:404:20
+      5  100.0%        Function: ^tryFile node:internal/modules/cjs/loader:395:17
+      5  100.0%          Function: ^tryExtensions node:internal/modules/cjs/loader:411:23
+      3   60.0%            Function: ^tryPackage node:internal/modules/cjs/loader:349:20
+      2   40.0%            Function: ^Module._findPath node:internal/modules/cjs/loader:505:28
+     14    1.4%    LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+     12   85.7%      Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      3   25.0%        Function: ~<anonymous> node:internal/modules/esm/fetch_module:1:1
+      3  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      3  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      2   16.7%        LazyCompile: ~initializeCJSLoader node:internal/bootstrap/pre_execution:521:29
+      2  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      2  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      2   16.7%        Function: ~<anonymous> node:internal/modules/esm/loader:1:1
+      2  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      2  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    8.3%        LazyCompile: ~initializeSourceMapsHandlers node:internal/bootstrap/pre_execution:560:38
+      1  100.0%          LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      1  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    8.3%        Function: ~<anonymous> node:internal/source_map/source_map_cache:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    8.3%        Function: ~<anonymous> node:internal/process/esm_loader:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    8.3%        Function: ~<anonymous> node:internal/modules/esm/module_map:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1    8.3%        Function: ~<anonymous> node:internal/modules/cjs/loader:1:1
+      1  100.0%          LazyCompile: ~compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%            Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      2   14.3%      LazyCompile: ~nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      2  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+     12    1.2%    Function: ^initialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/passport/lib/middleware/initialize.js:51:29
+      5   41.7%      LazyCompile: *trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      5  100.0%        LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      5  100.0%          Function: ^session /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:179:26
+      5  100.0%            LazyCompile: *trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      4   33.3%      LazyCompile: *handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+      4  100.0%        Function: ^trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      4  100.0%          LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      4  100.0%            Function: ^session /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:179:26
+      3   25.0%      Function: ^handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+      3  100.0%        Function: ^trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      2   66.7%          Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:280:64
+      2  100.0%            Function: ^process_params /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:338:47
+      1   33.3%          LazyCompile: *next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      1  100.0%            Function: ^session /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:179:26
+     11    1.1%    LazyCompile: *Module._findPath node:internal/modules/cjs/loader:505:28
+      7   63.6%      Function: ^Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      6   85.7%        Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      6  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      6  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      1   14.3%        LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%          Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      4   36.4%      LazyCompile: *Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      2   50.0%        LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      2  100.0%          LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      2  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+      2   50.0%        Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      2  100.0%          LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      2  100.0%            Function: ^require node:internal/modules/cjs/helpers:101:31
+     10    1.0%    Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      7   70.0%      LazyCompile: *Module.require node:internal/modules/cjs/loader:1020:36
+      7  100.0%        Function: ^require node:internal/modules/cjs/helpers:101:31
+      3   42.9%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/name/index.js:1:1
+      3  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1   14.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/helpers/populate/assignRawDocsToIdStructure.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1   14.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/helpers/document/getEmbeddedDiscriminatorPath.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1   14.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/error/index.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1   14.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/address/index.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      3   30.0%      Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      3  100.0%        Function: ^require node:internal/modules/cjs/helpers:101:31
+      1   33.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/it/name/index.js:1:1
+      1  100.0%            LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1   33.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@aws-sdk/types/dist-cjs/index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1   33.3%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@aws-sdk/client-sso/dist-cjs/commands/index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+
+    388   10.4%  T node::contextify::ContextifyContext::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+    387   99.7%    Function: ^compileFunction node:vm:316:25
+    387  100.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+    386   99.7%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+    380   98.4%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+    363   95.5%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     17    4.5%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      6    1.6%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      6  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+
+    218    5.9%  t node::fs::Read(v8::FunctionCallbackInfo<v8::Value> const&)
+    216   99.1%    Function: ^readSync node:fs:699:18
+    212   98.1%      Function: ^tryReadSync node:fs:438:21
+    212  100.0%        Function: ^readFileSync node:fs:459:22
+    203   95.8%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+    190   93.6%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     13    6.4%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      8    3.8%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      8  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      4    1.9%      LazyCompile: *readFileSync node:fs:459:22
+      4  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      3   75.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      3  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1   25.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+
+     95    2.6%  /usr/lib/system/libsystem_pthread.dylib
+     56   58.9%    LazyCompile: *compileFunction node:vm:316:25
+     51   91.1%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     51  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     29   56.9%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     19   65.5%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+     10   34.5%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+     22   43.1%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     22  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      5    8.9%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      5  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      5  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      5  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      2    2.1%    LazyCompile: ~toRealPath node:internal/modules/cjs/loader:404:20
+      2  100.0%      LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:505:28
+      2  100.0%        LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      2  100.0%          LazyCompile: ~executeUserEntryPoint node:internal/modules/run_main:74:31
+      2  100.0%            Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.1%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%      LazyCompile: ~getStack /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/depd/index.js:381:19
+      1  100.0%        LazyCompile: ~depd /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/depd/index.js:103:15
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/body-parser/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.1%    LazyCompile: ~x /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/address/default_country.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/address/default_country.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~wrapSafe node:internal/modules/cjs/loader:1040:18
+      1  100.0%      LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: ~Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    LazyCompile: ~u /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sk/name/male_first_name.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sk/name/male_first_name.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~stream.emit node:internal/fs/streams:55:27
+      1  100.0%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/graceful-fs/graceful-fs.js:329:53
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/graceful-fs/graceful-fs.js:357:50
+      1  100.0%          LazyCompile: ~<anonymous> node:fs:196:10
+      1    1.1%    LazyCompile: ~setupWarningHandler node:internal/bootstrap/pre_execution:168:29
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.1%    LazyCompile: ~r /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/team/prefix.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/team/prefix.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:103:28
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.1%    LazyCompile: ~h /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/address/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/address/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    LazyCompile: ~get serverSession /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sessions.js:86:22
+      1  100.0%      LazyCompile: ~applySession /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sessions.js:657:22
+      1  100.0%        LazyCompile: ~command /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:251:12
+      1  100.0%          LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/server.js:197:42
+      1  100.0%            LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection_pool.js:300:23
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/zu_ZA/internet/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/zu_ZA/internet/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/name/female_last_name.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/name/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/name/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ro/address/postcode.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ro/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ro/address/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/name/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/name/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/lv/name/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/lv/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/lv/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_BE/address/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_BE/address/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/word/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/word/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/name/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/name/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/name/name.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/name/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/name/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~describe /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:34410
+      1  100.0%      LazyCompile: ~addHelpOpt /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:29439
+      1  100.0%        LazyCompile: ~help /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:29743
+      1  100.0%          LazyCompile: ~fe.Yargs /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:61285
+      1  100.0%            LazyCompile: ~Argv /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/index.cjs:11:14
+      1    1.1%    LazyCompile: ~checkInt node:internal/buffer:58:18
+      1  100.0%      Function: ^writeU_Int32LE node:internal/buffer:690:24
+      1  100.0%        Function: ^writeInt32LE node:internal/buffer:860:22
+      1  100.0%          Function: ^toBin /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/commands.js:345:10
+      1  100.0%            Function: ^writeCommand /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1    1.1%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/vehicle/manufacturer.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/vehicle/manufacturer.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~a /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/name/index.js:1:259
+      1  100.0%      LazyCompile: ~o /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/name/index.js:1:432
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/name/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~_ /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sv/team/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sv/team/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    Function: ~<anonymous> node:internal/fs/rimraf:1:1
+      1  100.0%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1  100.0%          Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/graceful-fs/graceful-fs.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/science/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/internet/domain_suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ne/address/state.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nb_NO/address/street_prefix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ja/name/first_name.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/hu/phone_number/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_IND/internet/free_email.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/vehicle/type.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/music/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ^get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/address/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+
+     88    2.4%  T _semaphore_destroy
+     25   28.4%    LazyCompile: *compileFunction node:vm:316:25
+     20   80.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     20  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     18   90.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     13   72.2%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      5   27.8%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      2   10.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      2  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      5   20.0%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      5  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      5  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      5  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      2    2.3%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1   50.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_CH/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_CH/address/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1   50.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/route.js:1:1
+      1  100.0%        LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~v /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/business/credit_card_types.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/business/credit_card_types.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~u /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/company/bs_adjective.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/company/bs_adjective.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~serializeInto /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%      Function: ^serializeObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/serializer.js:260:25
+      1  100.0%        LazyCompile: ~serializeInto /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/serializer.js:553:23
+      1  100.0%          LazyCompile: ~serialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/bson.js:110:19
+      1  100.0%            LazyCompile: ~toBin /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1    1.1%    LazyCompile: ~send /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/send/index.js:83:15
+      1  100.0%      LazyCompile: ~serveStatic /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/serve-static/index.js:72:31
+      1  100.0%        LazyCompile: ~handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+      1  100.0%          LazyCompile: ~trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      1  100.0%            LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:280:64
+      1    1.1%    LazyCompile: ~onwrite node:internal/streams/writable:427:17
+      1  100.0%      LazyCompile: ~afterWriteDispatched node:internal/stream_base_commons:155:30
+      1  100.0%        Function: ^writeGeneric node:internal/stream_base_commons:147:22
+      1  100.0%          LazyCompile: ~Socket._writeGeneric node:net:848:42
+      1  100.0%            Function: ^Socket._write node:net:885:35
+      1    1.1%    LazyCompile: ~nextTick node:internal/process/task_queues:104:18
+      1  100.0%      LazyCompile: ~ChildProcess.spawn node:internal/child_process:347:40
+      1  100.0%        LazyCompile: ~spawn node:child_process:705:15
+      1  100.0%          LazyCompile: ~fork node:child_process:115:14
+      1  100.0%            Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:1:1
+      1    1.1%    LazyCompile: ~isFileType node:fs:213:20
+      1  100.0%      LazyCompile: ~realpathSync node:fs:2460:22
+      1  100.0%        LazyCompile: ~toRealPath node:internal/modules/cjs/loader:404:20
+      1  100.0%          LazyCompile: ~Module._findPath node:internal/modules/cjs/loader:505:28
+      1  100.0%            LazyCompile: ~resolveMainPath node:internal/modules/run_main:15:25
+      1    1.1%    LazyCompile: ~i /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/uk/name/title.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/uk/name/title.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/zh_TW/name/last_name.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/zh_TW/name/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/zh_TW/name/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/team/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/address/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/address/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/phone_number/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/phone_number/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/company/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/company/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/hy/address/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/hy/address/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/color/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GH/company/name_patterns.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GH/company/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GH/company/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/word/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/word/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/finance/credit_card/american_express.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/finance/credit_card/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/finance/credit_card/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/finance/credit_card/maestro.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/finance/credit_card/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/finance/credit_card/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/company/noun.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/company/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/company/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~g /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/internet/free_email.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/internet/free_email.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~debug node:internal/util/debuglog:76:15
+      1  100.0%      LazyCompile: ~logger node:internal/util/debuglog:95:18
+      1  100.0%        LazyCompile: ~Module._resolveLookupPaths node:internal/modules/cjs/loader:678:38
+      1  100.0%          LazyCompile: ~Module._resolveFilename node:internal/modules/cjs/loader:865:35
+      1  100.0%            LazyCompile: ~Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    LazyCompile: ~d /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_CA/internet/domain_suffix.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_CA/internet/domain_suffix.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/uk/address/postcode.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/uk/address/postcode.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~_copy node:buffer:205:15
+      1  100.0%      Function: ^copy node:buffer:782:16
+      1  100.0%        Function: ^deserializeObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%          Function: ^deserializeObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:65:27
+      1  100.0%            LazyCompile: ~deserialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/parser/deserializer.js:36:21
+      1    1.1%    LazyCompile: ~Y /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/faker.js:1:1341
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~Server.listen node:net:1513:35
+      1  100.0%      LazyCompile: ~listen /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/application.js:633:29
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/server.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%      Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1  100.0%        Function: ^require node:internal/modules/cjs/helpers:101:31
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/route.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.1%    LazyCompile: ~D /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_AU/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_AU/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.1%    LazyCompile: ~Connection.onOpen /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:636:39
+      1  100.0%      LazyCompile: ~_setClient /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:858:20
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:809:20
+      1  100.0%          LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:348:18
+      1  100.0%            t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    1.1%    LazyCompile: ~<anonymous> node:internal/fs/utils:639:3
+      1  100.0%      Function: ^readSync node:fs:699:18
+      1  100.0%        Function: ^tryReadSync node:fs:438:21
+      1  100.0%          Function: ^readFileSync node:fs:459:22
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/archetype/src/unmarshal/index.js:159:36
+      1  100.0%      t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%        LazyCompile: ~visitObject /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/archetype/src/unmarshal/index.js:138:21
+      1  100.0%          LazyCompile: ~castDocument /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/archetype/src/unmarshal/index.js:58:22
+      1  100.0%            LazyCompile: ~Type /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/archetype/src/type.js:7:14
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sv/address/country.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/hacker/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/lorem/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/animal/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ne/phone_number/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nb_NO/internet/domain_suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nb_NO/address/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/mk/phone_number/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/mk/internet/domain_suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/it/address/state_abbr.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/name/last_name.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ge/address/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_CH/address/city.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_BE/address/street_address.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/company/name_patterns.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GB/address/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_AU_ocker/internet/domain_suffix.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/date/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.1%    Function: ^get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/address/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.1%    Function: ^<anonymous> node:internal/validators:245:42
+      1  100.0%      Function: ^compileFunction node:vm:316:25
+      1  100.0%        Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+
+     85    2.3%  T _mach_vm_map
+     81   95.3%    LazyCompile: *readSync node:fs:699:18
+     81  100.0%      LazyCompile: *readFileSync node:fs:459:22
+     81  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     81  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     51   63.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+     30   37.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+
+     75    2.0%  /usr/lib/system/libsystem_kernel.dylib
+     38   50.7%    LazyCompile: *compileFunction node:vm:316:25
+     34   89.5%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     34  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     22   64.7%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     12   54.5%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+     10   45.5%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+     12   35.3%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     12  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      4   10.5%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      4  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      4  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      4  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      2    2.7%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1   50.0%      LazyCompile: ~getStack /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/depd/index.js:381:19
+      1  100.0%        LazyCompile: ~depd /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/depd/index.js:103:15
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/body-parser/index.js:1:1
+      1  100.0%            LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1   50.0%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/monitor.js:205:52
+      1  100.0%        LazyCompile: ~callback /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connect.js:63:31
+      1  100.0%          LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connect.js:88:85
+      1  100.0%            LazyCompile: ~onMessage /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:156:14
+      1    1.3%    LazyCompile: ~y /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/business/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/business/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~v /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ro/address/state.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ro/address/state.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~s /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/address/index.js:1:259
+      1  100.0%      LazyCompile: ~r /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/address/index.js:1:432
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/address/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.3%    LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:103:28
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.3%    LazyCompile: ~lookup node:dns:141:16
+      1  100.0%      LazyCompile: ~<anonymous> node:net:1132:61
+      1  100.0%        LazyCompile: ~defaultTriggerAsyncIdScope node:internal/async_hooks:455:36
+      1  100.0%          LazyCompile: ~lookupAndConnect node:net:1076:26
+      1  100.0%            LazyCompile: ~Socket.connect node:net:1018:36
+      1    1.3%    LazyCompile: ~listOnTimeout node:internal/timers:507:25
+      1  100.0%      LazyCompile: ~processTimers node:internal/timers:487:25
+      1    1.3%    LazyCompile: ~k /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/cz/address/city_name.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/cz/address/city_name.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl_BE/address/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl_BE/address/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/commerce/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/commerce/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/commerce/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/commerce/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/address/street_address.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/address/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/phone_number/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.3%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de/cell_phone/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de/cell_phone/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~fromList node:internal/streams/readable:1316:18
+      1  100.0%      LazyCompile: ~Readable.read node:internal/streams/readable:394:35
+      1  100.0%        LazyCompile: ~flow node:internal/streams/readable:1008:14
+      1  100.0%          LazyCompile: ~resume_ node:internal/streams/readable:984:17
+      1  100.0%            LazyCompile: ~processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.3%    LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%      LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/debug/src/node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.3%    LazyCompile: ~createAppender /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:74:24
+      1  100.0%      LazyCompile: ~getAppender /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:59:21
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:139:41
+      1  100.0%          t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%            LazyCompile: ~setup /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:128:15
+      1    1.3%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/az/address/street_name.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/az/address/street_name.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.3%    LazyCompile: ~_addListener node:events:541:22
+      1  100.0%      Function: ^addListener node:events:604:58
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/mongo_client.js:114:43
+      1  100.0%          LazyCompile: ~maybeCallback /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:335:23
+      1  100.0%            LazyCompile: ~connect /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/mongo_client.js:110:12
+      1    1.3%    LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:56465
+      1  100.0%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:50245
+      1  100.0%        LazyCompile: ~Xt /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:28448
+      1  100.0%          LazyCompile: ~fe.Yargs /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/build/index.cjs:1:61285
+      1  100.0%            LazyCompile: ~Argv /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/index.cjs:11:14
+      1    1.3%    LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/operations/indexes.js:92:98
+      1  100.0%      t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/operations/indexes.js:88:36
+      1  100.0%          t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%            LazyCompile: ~CreateIndexesOperation /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/operations/indexes.js:84:16
+      1    1.3%    LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/clustering.js:45:29
+      1  100.0%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/configuration.js:51:21
+      1  100.0%        t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%          LazyCompile: ~configure /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/configuration.js:42:19
+      1  100.0%            LazyCompile: ~configure /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/log4js.js:59:19
+      1    1.3%    Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.3%    Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/encoding.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/modules/word/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/modules/image/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_PT/name/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nl/company/suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/mk/company/suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_NG/internet/domain_suffix.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/internet/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_AT/internet/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.3%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+
+     64    1.7%  /usr/lib/system/libsystem_c.dylib
+     39   60.9%    LazyCompile: *compileFunction node:vm:316:25
+     34   87.2%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     34  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+     21   61.8%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+     13   61.9%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      8   38.1%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+     13   38.2%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+     13  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      5   12.8%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      5  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      5  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      5  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~u /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GH/address/default_country.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_GH/address/default_country.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~serialize /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bson/lib/bson.js:110:19
+      1  100.0%      LazyCompile: ~toBin /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/commands.js:82:10
+      1  100.0%        LazyCompile: ~writeCommand /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/message_stream.js:40:17
+      1  100.0%          LazyCompile: ~write /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:404:15
+      1  100.0%            LazyCompile: ~command /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:251:12
+      1    1.6%    LazyCompile: ~s /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/address/secondary_address.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/address/secondary_address.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~readSync node:fs:699:18
+      1  100.0%      LazyCompile: ~tryReadSync node:fs:438:21
+      1  100.0%        LazyCompile: ~readFileSync node:fs:459:22
+      1  100.0%          LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: ~Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~p /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_AT/address/default_country.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_AT/address/default_country.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sk/address/city_suffix.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sk/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sk/address/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/name/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/el/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/name/suffix.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ur/name/suffix.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/address/street_suffix.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/address/street_suffix.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~URLStateMachine /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/url-state-machine.js:481:25
+      1  100.0%      LazyCompile: ~module.exports.basicURLParse /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/url-state-machine.js:1206:41
+      1  100.0%        LazyCompile: ~URLImpl /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/URL-impl.js:7:14
+      1  100.0%          LazyCompile: ~exports.setup /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/URL.js:49:17
+      1  100.0%            LazyCompile: ~URL /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/URL.js:90:16
+      1    1.6%    LazyCompile: ~Layer /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:33:15
+      1  100.0%      LazyCompile: ~route /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:502:29
+      1  100.0%        LazyCompile: ~proto.<computed> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:519:27
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.6%    LazyCompile: ~I /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/internet/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/internet/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: *emit node:events:460:44
+      1  100.0%      Function: ^emit node:internal/child_process:937:16
+      1  100.0%        LazyCompile: *processTicksAndRejections node:internal/process/task_queues:68:35
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ne/address/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/lorem/words.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr_CH/vehicle/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/animal/type.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/lorem/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es/name/female_first_name.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_CA/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/address/default_country.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1  100.0%            Function: ^Module.require node:internal/modules/cjs/loader:1020:36
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@aws-sdk/client-cognito-identity/dist-cjs/runtimeConfig.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ^get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/cz/name/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/cz/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/cz/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+
+     62    1.7%  /usr/lib/libc++.1.dylib
+     17   27.4%    LazyCompile: *compileFunction node:vm:316:25
+     15   88.2%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+     15  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      8   53.3%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      8  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      7   46.7%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      5   71.4%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      2   28.6%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      2   11.8%      Function: ^wrapSafe node:internal/modules/cjs/loader:1040:18
+      2  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      2  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      2  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      2    3.2%    LazyCompile: ~handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/layer.js:86:49
+      2  100.0%      LazyCompile: ~trim_prefix /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:293:23
+      2  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:280:64
+      2  100.0%          LazyCompile: ~process_params /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:338:47
+      2  100.0%            LazyCompile: ~next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      1    1.6%    t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%      LazyCompile: ~toString /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/uid-safe/index.js:102:19
+      1  100.0%        LazyCompile: ~uidSync /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/uid-safe/index.js:75:18
+      1  100.0%          LazyCompile: ~generateSessionId /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:518:27
+      1  100.0%            LazyCompile: ~store.generate /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:158:28
+      1    1.6%    LazyCompile: ~urlParse node:url:151:18
+      1  100.0%      LazyCompile: ~validate_config /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@mapbox/node-pre-gyp/lib/util/versioning.js:195:25
+      1  100.0%        LazyCompile: ~exports.find /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@mapbox/node-pre-gyp/lib/pre-binding.js:17:24
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/bcrypt/bcrypt.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.6%    LazyCompile: ~u /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_PT/cell_phone/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_PT/cell_phone/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~touch /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/session/session.js:47:56
+      1  100.0%      LazyCompile: ~end /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express-session/index.js:250:27
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/routes/routerProcess.js:33:24
+      1  100.0%          Function: ^emit node:events:460:44
+      1  100.0%            LazyCompile: ~emit node:internal/child_process:937:16
+      1    1.6%    LazyCompile: ~r /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/index.js:1:432
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~patchProcessObject node:internal/bootstrap/pre_execution:103:28
+      1  100.0%      LazyCompile: ~prepareMainThreadExecution node:internal/bootstrap/pre_execution:29:36
+      1  100.0%        Function: ~<anonymous> node:internal/main/run_main_module:1:1
+      1    1.6%    LazyCompile: ~parserOnIncoming node:_http_server:880:26
+      1  100.0%      LazyCompile: ~parserOnHeadersComplete node:_http_common:77:33
+      1    1.6%    LazyCompile: ~next /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:177:16
+      1  100.0%      LazyCompile: ~handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/router/index.js:136:31
+      1  100.0%        LazyCompile: ~handle /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/application.js:165:29
+      1  100.0%          LazyCompile: ~app /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/express/lib/express.js:38:21
+      1  100.0%            Function: ^emit node:events:460:44
+      1    1.6%    LazyCompile: ~measureAndReschedule /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/monitor.js:295:34
+      1  100.0%      LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/sdam/monitor.js:318:109
+      1  100.0%        Function: ^onMessage /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:156:14
+      1  100.0%          Function: ^<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:60:44
+      1  100.0%            Function: ^emit node:events:460:44
+      1    1.6%    LazyCompile: ~l /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/address/direction.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fr/address/direction.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sv/cell_phone/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/sv/cell_phone/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/hacker/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ru/hacker/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/address/building_number.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/address/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/commerce/product_name.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/commerce/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/es_MX/commerce/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_AU/index.js:1:368
+      1  100.0%      t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%        LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/index.js:1:376
+      1  100.0%          Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/index.js:1:1
+      1  100.0%            Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/address/country_code.js:1:324
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/address/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de_CH/address/index.js:1:1
+      1  100.0%          Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de/address/index.js:1:368
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de/address/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~g /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/name/gender.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/name/gender.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~exports.install /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/lib/URL.js:83:19
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/whatwg-url/index.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~createWritableStdioStream node:internal/bootstrap/switches/is_main_thread:45:35
+      1  100.0%      LazyCompile: ~getStderr node:internal/bootstrap/switches/is_main_thread:168:19
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/debug/src/node.js:1:1
+      1  100.0%          LazyCompile: ~Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            LazyCompile: ~Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    1.6%    LazyCompile: ~createAppender /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:74:24
+      1  100.0%      LazyCompile: ~getAppender /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:59:21
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:139:41
+      1  100.0%          t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1  100.0%            LazyCompile: ~setup /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/log4js/lib/appenders/index.js:128:15
+      1    1.6%    LazyCompile: ~b /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/af_ZA/cell_phone/formats.js:1:388
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/af_ZA/cell_phone/formats.js:1:1
+      1  100.0%        Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~_write /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/message_stream.js:31:11
+      1  100.0%      LazyCompile: ~writeOrBuffer node:internal/streams/writable:367:23
+      1  100.0%        LazyCompile: ~_write node:internal/streams/writable:285:16
+      1  100.0%          LazyCompile: ~Writable.write node:internal/streams/writable:335:36
+      1  100.0%            LazyCompile: ~ondata node:internal/streams/readable:752:18
+      1    1.6%    LazyCompile: ~ReadableState node:internal/streams/readable:78:23
+      1  100.0%      LazyCompile: ~Readable node:internal/streams/readable:181:18
+      1  100.0%        LazyCompile: ~Duplex node:internal/streams/duplex:54:16
+      1  100.0%          LazyCompile: ~Socket node:net:294:16
+      1  100.0%            LazyCompile: ~WriteStream node:tty:85:21
+      1    1.6%    LazyCompile: ~N /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ko/phone_number/index.js:1:533
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/ko/phone_number/index.js:1:1
+      1  100.0%        LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%          Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%            Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1    1.6%    LazyCompile: ~HostAddress /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:762:16
+      1  100.0%      Function: ^fromString /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:820:22
+      1  100.0%        LazyCompile: ~fromHostPort /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:823:24
+      1  100.0%          LazyCompile: ~streamIdentifier /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:392:26
+      1  100.0%            LazyCompile: ~Connection /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/cmap/connection.js:37:16
+      1    1.6%    LazyCompile: ~Document.$__setSchema /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/document.js:3439:43
+      1  100.0%      LazyCompile: ~compile /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/model.js:5011:33
+      1  100.0%        LazyCompile: ~Mongoose._model /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/index.js:613:37
+      1  100.0%          LazyCompile: ~Mongoose.model /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/index.js:542:36
+      1  100.0%            Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/models/user.model.js:1:1
+      1    1.6%    LazyCompile: ~Connection.onOpen /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:636:39
+      1  100.0%      LazyCompile: ~_setClient /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:858:20
+      1  100.0%        LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongoose/lib/connection.js:809:20
+      1  100.0%          LazyCompile: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/mongodb/lib/utils.js:348:18
+      1  100.0%            t node::(anonymous namespace)::Parser::Unconsume(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    1.6%    Function: ~<anonymous> node:internal/fs/promises:1:1
+      1  100.0%      Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1  100.0%        Function: ^nativeModuleRequire node:internal/bootstrap/loaders:349:29
+      1  100.0%          Function: ~<anonymous> node:internal/modules/esm/load:1:1
+      1  100.0%            Function: ^compileForInternalLoader node:internal/bootstrap/loaders:316:27
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/yargs/index.cjs:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/gauge/themes.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/tr/name/prefix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            LazyCompile: *Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pt_BR/phone_number/formats.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/pl/company/suffix.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/nb_NO/company/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          LazyCompile: *Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/lv/color/index.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/lv/address/default_country.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/id_ID/address/street_address.js:1:1
+      1  100.0%      LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/fa/company/descriptor.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_US/address/postcode_by_state.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en_AU_ocker/phone_number/index.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/de/company/name_patterns.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+      1    1.6%    Function: ^get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/address/index.js:1:368
+      1  100.0%      LazyCompile: ~get /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/index.js:1:368
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/he/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+
+     51    1.4%  T _mach_get_times
+      1    2.0%    LazyCompile: ~listOnTimeout node:internal/timers:507:25
+      1  100.0%      LazyCompile: ~processTimers node:internal/timers:487:25
+      1    2.0%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/sift/lib/index.js:5:19
+      1  100.0%      Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/sift/lib/index.js:1:11
+      1  100.0%        Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/sift/lib/index.js:1:1
+      1  100.0%          LazyCompile: *Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%            Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1    2.0%    Function: ~<anonymous> /Users/maxizoppini/Documents/Repos/nodeJs - Coderhouse/nodeJsCourse/Entregables/Entregable_14/server/node_modules/@faker-js/faker/dist/cjs/locales/en/system/mimeTypes.js:1:1
+      1  100.0%      Function: ^Module._compile node:internal/modules/cjs/loader:1080:37
+      1  100.0%        Function: ^Module._extensions..js node:internal/modules/cjs/loader:1135:37
+      1  100.0%          Function: ^Module.load node:internal/modules/cjs/loader:992:33
+      1  100.0%            Function: ^Module._load node:internal/modules/cjs/loader:771:24
+
