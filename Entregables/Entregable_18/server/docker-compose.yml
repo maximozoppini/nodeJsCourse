@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  web:
+    image: nginx
+    restart: always
+    extra_hosts:
+      - "localNode:192.168.68.64"
+    volumes:
+      - entregable13:/var/www/html:ro
+      # see https://github.com/matomo-org/matomo-nginx
+      - ./nginx-conf/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 7979:80
+
+volumes:
+  entregable13:
