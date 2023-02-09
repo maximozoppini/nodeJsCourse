@@ -139,7 +139,50 @@ const getProductsGraph = async () => {
   }
 };
 
-const createProductGraph = async ({ data }) => {};
+const createProductGraph = async ({ datos }) => {
+  try {
+    const producto = await service.save(datos);
+    if (!producto) throw new Error("no se pudo registrar el producto");
+    return {
+      id: producto._id,
+      title: producto.title,
+      price: producto.price,
+      thumbnail: producto.thumbnail,
+    };
+  } catch (error) {
+    throw new Error("error producto create");
+  }
+};
+
+const updateProductGraph = async ({ id, datos }) => {
+  try {
+    const producto = await service.update(id, datos);
+    if (!producto) throw new Error("no se pudo actualizar el producto");
+    return {
+      id: producto._id,
+      title: producto.title,
+      price: producto.price,
+      thumbnail: producto.thumbnail,
+    };
+  } catch (error) {
+    throw new Error("error producto update");
+  }
+};
+
+const deleteProductGraph = async ({ id }) => {
+  try {
+    const producto = await service.deleteById(id);
+    if (!producto) throw new Error("producto no encontrado");
+    return {
+      id: producto._id,
+      title: producto.title,
+      price: producto.price,
+      thumbnail: producto.thumbnail,
+    };
+  } catch (error) {
+    throw new Error("error producto delete");
+  }
+};
 
 module.exports = {
   getAll,
@@ -150,4 +193,7 @@ module.exports = {
   deleteAll,
   getProductByIdGraph,
   getProductsGraph,
+  createProductGraph,
+  updateProductGraph,
+  deleteProductGraph,
 };

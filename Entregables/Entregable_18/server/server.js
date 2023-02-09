@@ -71,6 +71,9 @@ app.use(
     rootValue: {
       getProduct: productController.getProductByIdGraph,
       getProducts: productController.getProductsGraph,
+      createProduct: productController.createProductGraph,
+      updateProduct: productController.updateProductGraph,
+      deleteProduct: productController.deleteProductGraph,
     },
     graphiql: true,
   })
