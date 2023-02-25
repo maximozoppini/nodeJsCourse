@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const {
   sendRegEmailToAdmin,
@@ -13,16 +12,12 @@ const bcrypt = require("bcrypt");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fs = require("fs-extra");
-
-const MongoDBStore = require("connect-mongodb-session")(session);
-
 const { routerProduct } = require("./rutas/routerProductos");
 const { routerCart } = require("./rutas/routerCarrito");
 const { routerUsuario } = require("./rutas/routerUsuario");
 
 const userDao = userFactory(process.env.DAOTYPE);
 const passport = require("passport");
-const { ExtractJwt } = require("passport-jwt");
 const LocalStrategy = require("passport-local").Strategy;
 const JWTStragety = require("passport-jwt").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
@@ -36,26 +31,9 @@ app.use(express.static("public"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    name: "session-id",
-    store: new MongoDBStore({
-      uri: process.env.MONGODBURL,
-      collection: "sessions",
-    }),
-    cookie: {
-      maxAge: 1000 * 60 * 60,
-      secure: false,
-    },
-    resave: true,
-    saveUninitialized: false,
-  })
-);
 
 //middlewares passport
 app.use(passport.initialize());
-app.use(passport.session());
 
 //router para logueo
 app.use(routerUsuario);
@@ -79,6 +57,13 @@ passport.use(
         let user = await userDao.getDocument({ username: username });
         if (user) {
           await deleteUploadImg(req);
+          if (user.provider != "Local")
+            return done(null, false, {
+              message:
+                "Email is alredy registered with " +
+                user.provider +
+                " account. Please login with that provider.",
+            });
           return done(null, false, { message: "user already exists" });
         }
         checkUserAvatar(req);
@@ -91,10 +76,12 @@ passport.use(
           age: req.body.age,
           phone: req.body.phone,
           avatar: req.body.avatar,
+          provider: "Local",
         });
+
         if (newUser) {
           await sendRegEmailToAdmin(newUser);
-          await sendRegEmailToUser(username, req.body.name);
+          await sendRegEmailToUser(newUser);
           return done(null, newUser);
         }
       } catch (e) {
@@ -109,10 +96,10 @@ passport.use(
     try {
       let user = await userDao.getDocument({ username });
       if (!user) {
-        return done(null, false, { message: "usuario inexistente" });
+        return done(null, false, { message: "user do not exist" });
       }
       if (!isValidPassword(user, password)) {
-        return done(null, false, { message: "contraseña incorrecta" });
+        return done(null, false, { message: "incorrect password" });
       }
       return done(null, user);
     } catch (e) {
@@ -121,12 +108,21 @@ passport.use(
   })
 );
 
+// var cookieExtractor = function (req) {
+//   var token = null;
+//   if (req && req.cookies) token = req.cookies["auth"];
+//   console.log("🚀 ~ file: index.js:132 ~ cookieExtractor ~ token:", token);
+
+//   return token;
+// };
+
 passport.use(
   "jwt",
   new JWTStragety(
     {
       secretOrKey: process.env.JWT_PK,
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      // jwtFromRequest: cookieExtractor,
+      jwtFromRequest: (req) => req.cookies.auth,
     },
     async (token, done) => {
       try {
@@ -143,28 +139,48 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "http://localhost:8080/auth/facebook",
+      callbackURL: process.env.DOMAIN_NAME + "/auth/facebook",
       profileFields: ["id", "displayName", "link", "photos", "emails"],
     },
     async function (accessToken, refreshToken, profile, done) {
       try {
-        //----- Revisando que el usuario no existe
+        // Check if the fb profile has an email associated.
+        if (!profile.emails || !profile.emails[0]) {
+          return done(null, false, {
+            message:
+              "Facebook Account is not registered with email. Please sign in using other methods",
+          });
+        }
+
+        // Check if email exist in DB
         let user = await userDao.getDocument({
           username: profile.emails[0].value,
         });
+        // Return user if exists
         if (user) {
+          if (user.provider != "Facebook")
+            return done(null, false, {
+              message:
+                "Email is alredy registered with " +
+                user.provider +
+                " account. Please login with that provider.",
+            });
+
           return done(null, user);
         }
+
         //create user if not found
         let newUser = await userDao.save({
           username: profile.emails[0].value,
           name: profile.displayName,
           avatar: profile.photos[0].value,
           social_id: profile.id,
+          provider: "Facebook",
         });
+
         if (newUser) {
           await sendRegEmailToAdmin(newUser);
-          await sendRegEmailToUser(username, req.body.name);
+          await sendRegEmailToUser(newUser);
           return done(null, newUser);
         }
       } catch (e) {
@@ -179,28 +195,46 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:8080/auth/google",
+      callbackURL: process.env.DOMAIN_NAME + "/auth/google",
       profileFields: ["id", "displayName", "link", "photos", "emails"],
     },
     async function (accessToken, refreshToken, profile, done) {
       try {
-        //----- Revisando que el usuario no existe
+        // Check if the fb profile has an email associated.
+        if (!profile.emails || !profile.emails[0]) {
+          return done(null, false, {
+            message:
+              "Google Account is not registered with email. Please sign in using other methods",
+          });
+        }
+
+        // Check if email exist in DB
         let user = await userDao.getDocument({
           username: profile.emails[0].value,
         });
         if (user) {
+          if (user.provider != "Google")
+            return done(null, false, {
+              message:
+                "Email is alredy registered with " +
+                user.provider +
+                " account. Please login with that provider.",
+            });
+
           return done(null, user);
         }
-        //create user if not found
+
+        // Create user if not found
         let newUser = await userDao.save({
           username: profile.emails[0].value,
           name: profile.displayName,
           avatar: profile.photos[0].value,
           social_id: profile.id,
+          provider: "Google",
         });
         if (newUser) {
           await sendRegEmailToAdmin(newUser);
-          await sendRegEmailToUser(username, req.body.name);
+          await sendRegEmailToUser(newUser);
           return done(null, newUser);
         }
       } catch (e) {
@@ -226,16 +260,18 @@ function isValidPassword(user, password) {
 async function deleteUploadImg(req) {
   if (req.body.avatar_type != "0") {
     req.body.avatar = req.file.filename;
-    await fs.remove(path.join(__dirname, "../uploads/") + req.file.filename);
+    await fs.remove(
+      path.join(__dirname, "./public/uploads/") + req.file.filename
+    );
   }
   return;
 }
 
 function checkUserAvatar(req) {
   if (req.body.avatar_type != "0")
-    if (req.file) req.body.avatar = "./uploads/" + req.file?.filename;
-    else req.body.avatar = "./uploads/default.png";
-  else if (req.body.avatar == "") req.body.avatar = "./uploads/default.png";
+    if (req.file) req.body.avatar = "/uploads/" + req.file?.filename;
+    else req.body.avatar = "/uploads/default.png";
+  else if (req.body.avatar == "") req.body.avatar = "/uploads/default.png";
 }
 
 const listener = app.listen(process.env.PORT || 8080, function () {

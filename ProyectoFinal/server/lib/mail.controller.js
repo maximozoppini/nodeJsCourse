@@ -10,16 +10,16 @@ const transporter = createTransport({
   },
 });
 
-async function sendRegEmailToUser(emailTo, name) {
+async function sendRegEmailToUser(user) {
   try {
     await transporter.sendMail({
-      from: `Registros CoderHouse <${emailTo}>`,
-      to: emailTo,
+      from: `Registros CoderHouse <${user.username}>`,
+      to: user.username,
       subject: "Bienvenido",
       text: "Te doy la bienvenida",
       html: `
             <div id="email___content">
-            <h2>Hola ${name}</h2>
+            <h2>Hola ${user.name}</h2>
             <p>Felicidades!!</p>
             <p>Te has registrado al proyecto final de CoderHouse</p>
             </div>`,

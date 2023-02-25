@@ -9,6 +9,7 @@ const userSchema = new Schema({
   phone: { type: String },
   avatar: { type: String },
   social_id: { type: String },
+  provider: { type: String },
 });
 
 const userModel = model("usuarios", userSchema);
