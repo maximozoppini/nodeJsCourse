@@ -1,9 +1,8 @@
-const userModel = require("../../models/user.model");
 const { UserMongoDAO } = require("./userMongo.dao");
 
-const userFactory = (type = "FS") => {
+const userFactory = (type = "MONGO") => {
   if (type === "MONGO") {
-    return new UserMongoDAO(process.env.MONGODBURL, userModel);
+    return UserMongoDAO.getInstance(process.env.MONGODBURL);
   }
 };
 

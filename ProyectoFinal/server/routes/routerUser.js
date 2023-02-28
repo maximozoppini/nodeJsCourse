@@ -2,12 +2,13 @@ const express = require("express");
 const passport = require("passport");
 const upload = require("../lib/multer.controller");
 const { generateToken } = require("../config/jwt.config");
-const userFactory = require("../daos/users/user.dao.factory");
 
-const routerUsuario = express.Router();
-const userDao = userFactory(process.env.DAOTYPE);
+const { UserService } = require("../services/user.service");
+const userService = new UserService();
 
-routerUsuario.get(
+const routerUser = express.Router();
+
+routerUser.get(
   "/login",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
@@ -15,7 +16,7 @@ routerUsuario.get(
   }
 );
 
-routerUsuario.post("/login", async (req, res, next) => {
+routerUser.post("/login", async (req, res, next) => {
   try {
     passport.authenticate(
       "login",
@@ -40,7 +41,7 @@ routerUsuario.post("/login", async (req, res, next) => {
   }
 });
 
-routerUsuario.post("/logout", async (req, res, next) => {
+routerUser.post("/logout", async (req, res, next) => {
   try {
     res.clearCookie("auth");
     res.status(200).json({
@@ -53,7 +54,7 @@ routerUsuario.post("/logout", async (req, res, next) => {
   }
 });
 
-routerUsuario.post(
+routerUser.post(
   "/register",
   upload.single("avatar"),
   async (req, res, next) => {
@@ -78,20 +79,20 @@ routerUsuario.post(
   }
 );
 
-routerUsuario.get(
+routerUser.get(
   "/user/profile",
   passport.authenticate("jwt"),
   async (req, res) => {
-    res.status(200).json(await userDao.getById(req.session.passport.user));
+    res.status(200).json(await userService.getById(req.user._id));
   }
 );
 
-routerUsuario.get(
+routerUser.get(
   "/auth/loginFacebook",
   passport.authenticate("facebook", { scope: ["email"] })
 );
 
-routerUsuario.get("/auth/facebook", (req, res, next) => {
+routerUser.get("/auth/facebook", (req, res, next) => {
   try {
     passport.authenticate(
       "facebook",
@@ -116,12 +117,12 @@ routerUsuario.get("/auth/facebook", (req, res, next) => {
   }
 });
 
-routerUsuario.get(
+routerUser.get(
   "/auth/loginGoogle",
   passport.authenticate("google", { scope: ["email"] })
 );
 
-routerUsuario.get("/auth/google", (req, res, next) => {
+routerUser.get("/auth/google", (req, res, next) => {
   try {
     passport.authenticate(
       "google",
@@ -146,4 +147,4 @@ routerUsuario.get("/auth/google", (req, res, next) => {
   }
 });
 
-module.exports = { routerUsuario };
+module.exports = { routerUser };
