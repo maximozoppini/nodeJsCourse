@@ -12,9 +12,9 @@ class CartMongoDAO extends MongoDbContainer {
     this.userDao = userFactory(process.env.MONGODBURL);
   }
 
-  async getProducts(id) {
-    return await super.getById(id)?.productos;
-  }
+  // async getProducts(id) {
+  //   return await super.getById(id)?.productos;
+  // }
 
   async save(userId) {
     const cart = await super.save(new cartModel({ user: userId }));
