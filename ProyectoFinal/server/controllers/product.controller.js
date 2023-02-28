@@ -1,40 +1,28 @@
-const express = require("express");
-const productFactory = require("../daos/product/product.dao.factory");
+const { ProductService } = require("../services/product.service");
+const service = new ProductService();
 
-const routerProduct = express.Router();
-const productDao = productFactory(process.env.DAOTYPE);
-
-const isLoggedIn = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  return res
-    .status(401)
-    .json({ statusCode: 400, message: "not authenticated" });
-};
-
-routerProduct.get("/", async (req, res, next) => {
+const getAll = async (req, res, next) => {
   try {
-    const productos = await productDao.getAll();
-    res.status(200).json(productos);
+    const products = await service.getAll();
+    res.status(200).json(products);
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerProduct.get("/:id", async (req, res, next) => {
+const getById = async (req, res, next) => {
   try {
     if (req.params.id === undefined || req.params.id === null) {
       res.status(400).json({ error: "parametro incorrecto" });
     }
-    const producto = await productDao.getById(req.params.id);
-    res.status(200).json(producto ?? { error: "producto no encontrado" });
+    const product = await service.getById(req.params.id);
+    res.status(200).json(product ?? { error: "producto no encontrado" });
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerProduct.post("/", isLoggedIn, async (req, res, next) => {
+const save = async (req, res, next) => {
   try {
     if (
       req.body.nombre &&
@@ -42,10 +30,10 @@ routerProduct.post("/", isLoggedIn, async (req, res, next) => {
       req.body.codigo &&
       !Number.isNaN(req.body.stock)
     ) {
-      const producto = await productDao.save(req.body);
+      const product = await service.save(req.body);
       res
         .status(200)
-        .json(producto ?? { error: "no se pudo registrar el producto" });
+        .json(product ?? { error: "no se pudo registrar el producto" });
     } else {
       res.status(400).json({
         error: "no se pudo registrar el producto, verifique el objeto enviado",
@@ -54,9 +42,9 @@ routerProduct.post("/", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerProduct.put("/:id", isLoggedIn, async (req, res, next) => {
+const update = async (req, res, next) => {
   try {
     if (
       req.body.nombre &&
@@ -65,7 +53,7 @@ routerProduct.put("/:id", isLoggedIn, async (req, res, next) => {
       !Number.isNaN(req.body.stock)
     ) {
       let { nombre, descripcion, codigo, url, precio, stock } = req.body;
-      const producto = await productDao.update(req.params.id, {
+      const product = await service.update(req.params.id, {
         nombre,
         descripcion,
         codigo,
@@ -75,7 +63,7 @@ routerProduct.put("/:id", isLoggedIn, async (req, res, next) => {
       });
       res
         .status(200)
-        .json(producto ?? { error: "no se pudo actualizar el producto" });
+        .json(product ?? { error: "no se pudo actualizar el producto" });
     } else {
       res.status(400).json({
         error: "no se pudo actualizar el producto, verifique el objeto enviado",
@@ -84,14 +72,14 @@ routerProduct.put("/:id", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerProduct.delete("/:id", isLoggedIn, async (req, res, next) => {
+const deleteById = async (req, res, next) => {
   try {
     if (req.params.id === undefined || req.params.id === null) {
       res.status(400).json({ error: "parametro incorrecto" });
     }
-    const result = await productDao.deleteById(req.params.id);
+    const result = await service.deleteById(req.params.id);
     res
       .status(200)
       .json(
@@ -102,11 +90,11 @@ routerProduct.delete("/:id", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerProduct.delete("/", isLoggedIn, async (req, res, next) => {
+const deleteAll = async (req, res, next) => {
   try {
-    const result = await productDao.deleteAll();
+    const result = await service.deleteAll();
     res
       .status(200)
       .json(
@@ -117,6 +105,13 @@ routerProduct.delete("/", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-module.exports = { routerProduct };
+module.exports = {
+  getAll,
+  getById,
+  save,
+  update,
+  deleteById,
+  deleteAll,
+};

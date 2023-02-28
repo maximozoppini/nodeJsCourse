@@ -2,21 +2,15 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const path = require("path");
 const fs = require("fs-extra");
-
-const defaultLogger = require("../../config/logger.config");
-
 const {
   sendRegEmailToAdmin,
   sendRegEmailToUser,
 } = require("../../lib/mail.controller");
 
-const { UserService } = require("../../services/user.service");
-
+const defaultLogger = require("../../config/logger.config");
 const LocalStrategy = require("passport-local").Strategy;
-// const JWTStragety = require("passport-jwt").Strategy;
-// const FacebookStrategy = require("passport-facebook").Strategy;
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
+const { UserService } = require("../../services/user.service");
 const userService = new UserService();
 
 passport.use(
@@ -95,10 +89,10 @@ passport.use(
 passport.serializeUser((user, done) => {
   done(null, user?._id);
 });
-passport.deserializeUser(async (id, done) => {
-  let user = await userService.getById(id);
-  done(null, user);
-});
+// passport.deserializeUser(async (id, done) => {
+//   let user = await userService.getById(id);
+//   done(null, user);
+// });
 
 function isValidPassword(user, password) {
   return bcrypt.compareSync(password, user.password);

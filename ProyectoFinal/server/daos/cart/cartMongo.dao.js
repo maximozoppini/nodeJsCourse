@@ -7,9 +7,9 @@ const {
 } = require("../../lib/mail.controller");
 
 class CartMongoDAO extends MongoDbContainer {
-  constructor(url, model) {
-    super(url, model);
-    this.userDao = userFactory(process.env.DAOTYPE);
+  constructor(url) {
+    super(url, cartModel);
+    this.userDao = userFactory(process.env.MONGODBURL);
   }
 
   async getProducts(id) {
@@ -77,6 +77,13 @@ class CartMongoDAO extends MongoDbContainer {
     sendPurchaseMsgToAdmin(user);
     sendPurchaseMsgToUser(user);
     return cart;
+  }
+
+  static getInstance(url) {
+    if (!this.instance) {
+      this.instance = new CartMongoDAO(url);
+    }
+    return this.instance;
   }
 }
 

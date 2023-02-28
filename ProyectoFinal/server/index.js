@@ -14,7 +14,7 @@ require("./routes/middlewares/passport.strategies.google");
 
 // const { routerProduct } = require("./routes/routerProduct");
 // const { routerCart } = require("./routes/routerCart");
-const { routerUser } = require("./routes/routerUser");
+const { routerUser } = require("./routes/user.route");
 
 const app = express();
 app.use(express.json());

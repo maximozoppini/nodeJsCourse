@@ -2,8 +2,8 @@ const { MongoDbContainer } = require("../../containers/mongoDbContainer");
 const productModel = require("../../models/product.model");
 
 class ProductMongoDAO extends MongoDbContainer {
-  constructor(url, model) {
-    super(url, model);
+  constructor(url) {
+    super(url, productModel);
   }
 
   async save(prod) {
@@ -34,6 +34,13 @@ class ProductMongoDAO extends MongoDbContainer {
       timeStamp,
     });
     return newProd;
+  }
+
+  static getInstance(url) {
+    if (!this.instance) {
+      this.instance = new ProductMongoDAO(url);
+    }
+    return this.instance;
   }
 }
 

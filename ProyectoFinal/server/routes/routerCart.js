@@ -4,15 +4,6 @@ const cartFactory = require("../daos/cart/cart.dao.factory");
 const routerCart = express.Router();
 const cartDao = cartFactory(process.env.DAOTYPE);
 
-const isLoggedIn = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  return res
-    .status(401)
-    .json({ statusCode: 400, message: "not authenticated" });
-};
-
 routerCart.get("/", isLoggedIn, async (req, res, next) => {
   try {
     const carrito = await cartDao.getDocument({

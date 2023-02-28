@@ -1,22 +1,9 @@
-const express = require("express");
 const passport = require("passport");
-const upload = require("../lib/multer.controller");
 const { generateToken } = require("../config/jwt.config");
-
 const { UserService } = require("../services/user.service");
 const userService = new UserService();
 
-const routerUser = express.Router();
-
-routerUser.get(
-  "/login",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.status(200).json(req.user);
-  }
-);
-
-routerUser.post("/login", async (req, res, next) => {
+const login = async (req, res, next) => {
   try {
     passport.authenticate(
       "login",
@@ -39,9 +26,9 @@ routerUser.post("/login", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerUser.post("/logout", async (req, res, next) => {
+const logout = async (req, res, next) => {
   try {
     res.clearCookie("auth");
     res.status(200).json({
@@ -52,47 +39,39 @@ routerUser.post("/logout", async (req, res, next) => {
       .status(500)
       .json({ status: "error", message: "Algo salio mal al hacer logout" });
   }
-});
+};
 
-routerUser.post(
-  "/register",
-  upload.single("avatar"),
-  async (req, res, next) => {
-    try {
-      passport.authenticate("register", (error, user, message) => {
+//TODO: ARREGLAR EL LOGIN PORQUE NO DEBERIA EJECUTAR ESO SINO GENERAR UN TOKEN
+const register = async (req, res, next) => {
+  try {
+    passport.authenticate("register", (error, user, message) => {
+      if (error) {
+        return next(error);
+      }
+      if (!user) {
+        return res.status(401).json(message);
+      }
+      req.logIn(user, (error) => {
         if (error) {
-          return next(error);
+          return next({ message: error });
         }
-        if (!user) {
-          return res.status(401).json(message);
-        }
-        req.logIn(user, (error) => {
-          if (error) {
-            return next({ message: error });
-          }
-          return res.status(200).json({ message: "exito", user });
-        });
-      })(req, res, next);
-    } catch (error) {
-      next(error);
-    }
+        return res.status(200).json({ message: "exito", user });
+      });
+    })(req, res, next);
+  } catch (error) {
+    next(error);
   }
-);
+};
 
-routerUser.get(
-  "/user/profile",
-  passport.authenticate("jwt"),
-  async (req, res) => {
+const getUserProfile = async (req, res, next) => {
+  try {
     res.status(200).json(await userService.getById(req.user._id));
+  } catch (error) {
+    next(error);
   }
-);
+};
 
-routerUser.get(
-  "/auth/loginFacebook",
-  passport.authenticate("facebook", { scope: ["email"] })
-);
-
-routerUser.get("/auth/facebook", (req, res, next) => {
+const facebookAuth = (req, res, next) => {
   try {
     passport.authenticate(
       "facebook",
@@ -115,14 +94,9 @@ routerUser.get("/auth/facebook", (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-routerUser.get(
-  "/auth/loginGoogle",
-  passport.authenticate("google", { scope: ["email"] })
-);
-
-routerUser.get("/auth/google", (req, res, next) => {
+const googleAuth = (req, res, next) => {
   try {
     passport.authenticate(
       "google",
@@ -145,6 +119,12 @@ routerUser.get("/auth/google", (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
-
-module.exports = { routerUser };
+};
+module.exports = {
+  login,
+  logout,
+  register,
+  getUserProfile,
+  facebookAuth,
+  googleAuth,
+};
