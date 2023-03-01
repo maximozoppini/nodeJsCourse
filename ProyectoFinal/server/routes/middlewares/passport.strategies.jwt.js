@@ -6,7 +6,6 @@ passport.use(
   new JWTStragety(
     {
       secretOrKey: process.env.JWT_PK,
-      // jwtFromRequest: cookieExtractor,
       jwtFromRequest: (req) => req.cookies.auth,
     },
     async (token, done) => {

@@ -7,7 +7,7 @@ const cartFactory = (type = "FS") => {
     return new CartFileSystemDAO("carrito");
   }
   if (type === "MONGO") {
-    return new CartMongoDAO.getInstance(process.env.MONGODBURL);
+    return CartMongoDAO.getInstance(process.env.MONGODBURL);
   }
   if (type === "FIREBASE") {
     return new CartFirebaseDAO("carritos");

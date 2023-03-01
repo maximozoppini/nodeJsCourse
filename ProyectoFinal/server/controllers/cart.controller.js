@@ -86,7 +86,7 @@ const addCartProduct = async (req, res, next) => {
 
 const buyUserCart = async (req, res, next) => {
   try {
-    const result = await service.buyCart(req.session.passport.user);
+    const result = await service.buyCart(req.user._id);
     res.status(200).json(
       result !== null
         ? {

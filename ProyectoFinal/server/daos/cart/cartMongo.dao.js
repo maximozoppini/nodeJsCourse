@@ -9,12 +9,8 @@ const {
 class CartMongoDAO extends MongoDbContainer {
   constructor(url) {
     super(url, cartModel);
-    this.userDao = userFactory(process.env.MONGODBURL);
+    this.userDao = userFactory(process.env.DAOTYPE);
   }
-
-  // async getProducts(id) {
-  //   return await super.getById(id)?.productos;
-  // }
 
   async save(userId) {
     const cart = await super.save(new cartModel({ user: userId }));
@@ -63,6 +59,7 @@ class CartMongoDAO extends MongoDbContainer {
   }
 
   async buyCart(userId) {
+    console.log(this.userDao);
     let user = await this.userDao.getById(userId);
     let cart = await super.getDocument({ user: userId });
     if (cart === null) {
