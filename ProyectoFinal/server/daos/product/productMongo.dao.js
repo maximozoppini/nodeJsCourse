@@ -4,6 +4,7 @@ const productModel = require("../../models/product.model");
 class ProductMongoDAO extends MongoDbContainer {
   constructor(url) {
     super(url, productModel);
+    this.model = productModel;
   }
 
   async save(prod) {
@@ -17,6 +18,7 @@ class ProductMongoDAO extends MongoDbContainer {
         precio: prod.precio,
         stock: prod.stock,
         timeStamp,
+        categoria: prod.categoria,
       })
     );
     return newProd;
@@ -31,6 +33,7 @@ class ProductMongoDAO extends MongoDbContainer {
       url: prod.url,
       precio: prod.precio,
       stock: prod.stock,
+      categoria: prod.categoria,
       timeStamp,
     });
     return newProd;

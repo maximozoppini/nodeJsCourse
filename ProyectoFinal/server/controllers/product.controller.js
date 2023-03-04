@@ -3,7 +3,7 @@ const service = new ProductService();
 
 const getAll = async (req, res, next) => {
   try {
-    const products = await service.getAll();
+    const products = await service.getAll(["categoria"]);
     res.status(200).json(products);
   } catch (error) {
     next(error);
@@ -15,7 +15,7 @@ const getById = async (req, res, next) => {
     if (req.params.id === undefined || req.params.id === null) {
       res.status(400).json({ error: "parametro incorrecto" });
     }
-    const product = await service.getById(req.params.id);
+    const product = await service.getById(req.params.id, ["categoria"]);
     res.status(200).json(product ?? { error: "producto no encontrado" });
   } catch (error) {
     next(error);
@@ -28,7 +28,8 @@ const save = async (req, res, next) => {
       req.body.nombre &&
       !Number.isNaN(req.body.precio) &&
       req.body.codigo &&
-      !Number.isNaN(req.body.stock)
+      !Number.isNaN(req.body.stock) &&
+      req.body.categoria
     ) {
       const product = await service.save(req.body);
       res
@@ -50,9 +51,11 @@ const update = async (req, res, next) => {
       req.body.nombre &&
       !Number.isNaN(req.body.precio) &&
       req.body.codigo &&
-      !Number.isNaN(req.body.stock)
+      !Number.isNaN(req.body.stock) &&
+      req.body.categoria
     ) {
-      let { nombre, descripcion, codigo, url, precio, stock } = req.body;
+      let { nombre, descripcion, codigo, url, precio, stock, categoria } =
+        req.body;
       const product = await service.update(req.params.id, {
         nombre,
         descripcion,
@@ -60,6 +63,7 @@ const update = async (req, res, next) => {
         url,
         precio,
         stock,
+        categoria,
       });
       res
         .status(200)

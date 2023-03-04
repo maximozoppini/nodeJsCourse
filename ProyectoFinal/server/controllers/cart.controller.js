@@ -3,9 +3,12 @@ const service = new CartService();
 
 const getUserCart = async (req, res, next) => {
   try {
-    const cart = await service.getDocument({
-      user: req.user._id,
-    });
+    const cart = await service.getDocument(
+      {
+        user: req.user._id,
+      },
+      ["productos"]
+    );
     res.status(200).json(cart?.productos ?? { error: "carrito no encontrado" });
   } catch (error) {
     next(error);
@@ -17,7 +20,7 @@ const getCartProduct = async (req, res, next) => {
     if (req.params.id === undefined || req.params.id === null) {
       res.status(400).json({ error: "parametro incorrecto" });
     }
-    const cart = await service.getById(req.params.id);
+    const cart = await service.getById(req.params.id, ["productos"]);
     res.status(200).json(cart?.productos ?? { error: "carrito no encontrado" });
   } catch (error) {
     next(error);

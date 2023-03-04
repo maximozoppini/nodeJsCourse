@@ -35,26 +35,34 @@ class MongoDbContainer {
     }
   }
 
-  async getById(id) {
+  async getById(id, populateFields) {
     try {
-      let result = await this.model.findById(id);
+      let result = populateFields
+        ? await this.model.findById(id).populate(populateFields.join(" "))
+        : this.model.findById(id);
       return result ?? null;
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  async getDocument(filter) {
+  async getDocument(filter, populateFields) {
     try {
-      return (await this.model.findOne(filter)) ?? null;
+      return (
+        (await (populateFields
+          ? this.model.findOne(filter).populate(populateFields.join(" "))
+          : this.model.findOne(filter))) ?? null
+      );
     } catch (error) {
       throw new Error(error);
     }
   }
 
-  async getAll() {
+  async getAll(populateFields) {
     try {
-      let result = await this.model.find();
+      let result = populateFields
+        ? await this.model.find().populate(populateFields.join(" "))
+        : this.model.find();
       return result ?? null;
     } catch (error) {
       throw new Error(error);

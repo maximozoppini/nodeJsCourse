@@ -3,25 +3,25 @@ class BaseService {
     this.dao = dao;
   }
 
-  async save(product) {
-    let newProd = await this.dao.save(product);
-    return newProd;
+  async save(entity) {
+    let newEntity = await this.dao.save(entity);
+    return newEntity;
   }
 
-  async getDocument(filter) {
-    return await this.dao.getDocument(filter);
+  async getDocument(filter, populateFields) {
+    return await this.dao.getDocument(filter, populateFields);
   }
 
-  async getById(id) {
-    return await this.dao.getById(id);
+  async getById(id, populateFields) {
+    return await this.dao.getById(id, populateFields);
   }
 
-  async getAll() {
-    return await this.dao.getAll();
+  async getAll(populateFields) {
+    return await this.dao.getAll(populateFields);
   }
 
-  async update(id, prod) {
-    return await this.dao.update(id, prod);
+  async update(id, entity) {
+    return await this.dao.update(id, entity);
   }
 
   async deleteById(id) {

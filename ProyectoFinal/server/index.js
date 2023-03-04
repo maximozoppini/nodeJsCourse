@@ -13,6 +13,7 @@ require("./routes/middlewares/passport.strategies.facebook");
 require("./routes/middlewares/passport.strategies.google");
 
 const { routerProduct } = require("./routes/product.route");
+const { routerProductCategory } = require("./routes/product.category.route");
 const { routerCart } = require("./routes/cart.route");
 const { routerUser } = require("./routes/user.route");
 
@@ -32,6 +33,8 @@ app.use(passport.initialize());
 app.use(routerUser);
 //router para los productos
 app.use("/productos", routerProduct);
+//router para los productos
+app.use("/categoriaProductos", routerProductCategory);
 
 //router para el carrito
 //TODO: VER SI PUEDO AGREGAR EL MIDDELWARE DE JWT PARA VALIDAR TODA LA RUTA

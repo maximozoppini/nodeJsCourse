@@ -7,12 +7,7 @@ class CartService extends BaseService {
     this.dao = cartFactory(process.env.DAOTYPE);
   }
 
-  async getProducts(id) {
-    return await super.getById(id)?.productos;
-  }
-
   async saveProduct(userId, cartId, product) {
-    console.log(super.dao);
     return await this.dao.saveProduct(userId, cartId, product);
   }
 

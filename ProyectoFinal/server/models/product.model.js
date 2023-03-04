@@ -7,6 +7,11 @@ const productSchema = new Schema({
   codigo: { type: String, require: true },
   stock: { type: Number, require: true },
   url: { type: String, require: true },
+  categoria: {
+    type: Schema.Types.ObjectId,
+    ref: "productCategory",
+    require: true,
+  },
   timeStamp: { type: Date, default: Date.now },
 });
 

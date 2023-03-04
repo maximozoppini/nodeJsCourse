@@ -12,6 +12,37 @@ class CartMongoDAO extends MongoDbContainer {
     this.userDao = userFactory(process.env.DAOTYPE);
   }
 
+  async getById(id) {
+    try {
+      let result = await this.model.findById(id).populate({
+        path: "productos",
+        populate: {
+          path: "producto",
+          select: "nombre descripcion precio url",
+          populate: { path: "categoria", select: "nombre descripcion" },
+        },
+      });
+      return result ?? null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async getDocument(filter) {
+    try {
+      let result = await this.model.findOne(filter).populate({
+        path: "productos",
+        populate: {
+          path: "producto",
+          select: "nombre descripcion precio url",
+          populate: { path: "categoria", select: "nombre descripcion" },
+        },
+      });
+      return result ?? null;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
   async save(userId) {
     const cart = await super.save(new cartModel({ user: userId }));
     return cart;
