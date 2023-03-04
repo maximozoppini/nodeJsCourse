@@ -16,8 +16,8 @@ class BaseService {
     return await this.dao.getById(id, populateFields);
   }
 
-  async getAll(populateFields) {
-    return await this.dao.getAll(populateFields);
+  async getAll(filter, populateFields) {
+    return await this.dao.getAll(filter, populateFields);
   }
 
   async update(id, entity) {

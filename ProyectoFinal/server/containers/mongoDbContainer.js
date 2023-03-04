@@ -58,11 +58,11 @@ class MongoDbContainer {
     }
   }
 
-  async getAll(populateFields) {
+  async getAll(filter, populateFields) {
     try {
       let result = populateFields
-        ? await this.model.find().populate(populateFields.join(" "))
-        : this.model.find();
+        ? await this.model.find(filter).populate(populateFields.join(" "))
+        : this.model.find(filter);
       return result ?? null;
     } catch (error) {
       throw new Error(error);

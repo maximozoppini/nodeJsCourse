@@ -16,6 +16,7 @@ const { routerProduct } = require("./routes/product.route");
 const { routerProductCategory } = require("./routes/product.category.route");
 const { routerCart } = require("./routes/cart.route");
 const { routerUser } = require("./routes/user.route");
+const { routerOrder } = require("./routes/order.route");
 
 const app = express();
 app.use(express.json());
@@ -39,6 +40,11 @@ app.use("/categoriaProductos", routerProductCategory);
 //router para el carrito
 //TODO: VER SI PUEDO AGREGAR EL MIDDELWARE DE JWT PARA VALIDAR TODA LA RUTA
 app.use("/carrito", routerCart);
+app.use(
+  "/ordenes",
+  passport.authenticate("jwt", { session: false }),
+  routerOrder
+);
 
 const listener = app.listen(process.env.PORT || 8080, function () {
   console.log(`Your app is listening to port: ${listener.address().port}`);

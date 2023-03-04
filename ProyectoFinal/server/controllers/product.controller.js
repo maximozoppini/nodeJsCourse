@@ -3,7 +3,7 @@ const service = new ProductService();
 
 const getAll = async (req, res, next) => {
   try {
-    const products = await service.getAll(["categoria"]);
+    const products = await service.getAll(null, ["categoria"]);
     res.status(200).json(products);
   } catch (error) {
     next(error);
