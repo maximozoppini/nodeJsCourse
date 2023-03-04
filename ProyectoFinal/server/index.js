@@ -38,8 +38,12 @@ app.use("/productos", routerProduct);
 app.use("/categoriaProductos", routerProductCategory);
 
 //router para el carrito
-//TODO: VER SI PUEDO AGREGAR EL MIDDELWARE DE JWT PARA VALIDAR TODA LA RUTA
-app.use("/carrito", routerCart);
+app.use(
+  "/carrito",
+  passport.authenticate("jwt", { session: false }),
+  routerCart
+);
+//router para las ordenes
 app.use(
   "/ordenes",
   passport.authenticate("jwt", { session: false }),

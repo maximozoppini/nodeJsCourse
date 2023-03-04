@@ -1,54 +1,21 @@
 const express = require("express");
 const routerCart = express.Router();
-const passport = require("passport");
 const cartController = require("../controllers/cart.controller");
 
-routerCart.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  cartController.getUserCart
-);
+routerCart.get("/", cartController.getUserCart);
 
-routerCart.get(
-  "/:id/productos",
-  passport.authenticate("jwt", { session: false }),
-  cartController.getCartProduct
-);
+routerCart.get("/:id/productos", cartController.getCartProduct);
 
-routerCart.post(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  cartController.saveCart
-);
+routerCart.post("/", cartController.saveCart);
 
-routerCart.delete(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  cartController.deleteCart
-);
+routerCart.delete("/:id", cartController.deleteCart);
 
-routerCart.post(
-  "/productos",
-  passport.authenticate("jwt", { session: false }),
-  cartController.addUserCartProduct
-);
+routerCart.post("/productos", cartController.addUserCartProduct);
 
-routerCart.post(
-  "/:id/productos",
-  passport.authenticate("jwt", { session: false }),
-  cartController.addCartProduct
-);
+routerCart.post("/:id/productos", cartController.addCartProduct);
 
-routerCart.post(
-  "/buy",
-  passport.authenticate("jwt", { session: false }),
-  cartController.buyUserCart
-);
+routerCart.post("/buy", cartController.buyUserCart);
 
-routerCart.delete(
-  "/:id/productos/:id_prod",
-  passport.authenticate("jwt", { session: false }),
-  cartController.deleteCartProduct
-);
+routerCart.delete("/:id/productos/:id_prod", cartController.deleteCartProduct);
 
 module.exports = { routerCart };
