@@ -22,6 +22,20 @@ const getById = async (req, res, next) => {
   }
 };
 
+const getByCategory = async (req, res, next) => {
+  try {
+    if (req.params.categoria === undefined || req.params.categoria === null) {
+      res.status(400).json({ error: "parametro incorrecto" });
+    }
+    const product = await service.getAll({ categoria: req.params.categoria }, [
+      "categoria",
+    ]);
+    res.status(200).json(product ?? { error: "producto no encontrado" });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const save = async (req, res, next) => {
   try {
     if (
@@ -114,6 +128,7 @@ const deleteAll = async (req, res, next) => {
 module.exports = {
   getAll,
   getById,
+  getByCategory,
   save,
   update,
   deleteById,

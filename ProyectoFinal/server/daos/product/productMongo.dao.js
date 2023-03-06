@@ -39,6 +39,10 @@ class ProductMongoDAO extends MongoDbContainer {
     return newProd;
   }
 
+  async updateStock(id, stock) {
+    return await super.update(id, { stock: stock });
+  }
+
   static getInstance(url) {
     if (!this.instance) {
       this.instance = new ProductMongoDAO(url);

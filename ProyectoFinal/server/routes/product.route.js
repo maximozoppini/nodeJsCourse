@@ -4,7 +4,8 @@ const routerProduct = express.Router();
 const passport = require("passport");
 
 routerProduct.get("/", productController.getAll);
-routerProduct.get("/:id", productController.getById);
+routerProduct.get("/id/:id", productController.getById);
+routerProduct.get("/categoria/:categoria", productController.getByCategory);
 
 routerProduct.post(
   "/",

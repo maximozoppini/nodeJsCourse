@@ -90,13 +90,7 @@ const addCartProduct = async (req, res, next) => {
 const buyUserCart = async (req, res, next) => {
   try {
     const result = await service.buyCart(req.user._id);
-    res.status(200).json(
-      result !== null
-        ? {
-            mensaje: `se compro al carrito con el id: ${result.id}`,
-          }
-        : { error: "carrito o producto no se pudo comprar" }
-    );
+    res.status(200).json(result.message);
   } catch (error) {
     next(error);
   }

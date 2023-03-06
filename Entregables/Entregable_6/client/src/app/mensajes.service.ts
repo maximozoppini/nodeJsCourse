@@ -10,7 +10,7 @@ export class MensajesService {
   constructor(private socket: Socket) {}
 
   get(): Observable<any> {
-    return this.socket.fromEvent('mensajes').pipe(
+    return this.socket.fromEvent('messages').pipe(
       map((data) => {
         console.log(data);
         return data;
@@ -19,6 +19,6 @@ export class MensajesService {
   }
 
   sendMensaje(data: any): void {
-    this.socket.emit('mensaje', data);
+    this.socket.emit('message', data);
   }
 }

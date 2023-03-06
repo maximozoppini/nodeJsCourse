@@ -1,5 +1,6 @@
 const cartFactory = require("../daos/cart/cart.dao.factory");
 const orderFactory = require("../daos/orders/order.dao.factory");
+const productFactory = require("../daos/product/product.dao.factory");
 const userFactory = require("../daos/users/user.dao.factory");
 const {
   sendPurchaseMsgToAdmin,
@@ -13,6 +14,16 @@ class CartService extends BaseService {
     this.dao = cartFactory(process.env.DAOTYPE);
     this.userDao = userFactory(process.env.DAOTYPE);
     this.orderDao = orderFactory(process.env.DAOTYPE);
+    this.productDao = productFactory(process.env.DAOTYPE);
+  }
+
+  async save(userId) {
+    //check if User has already a cart created.
+    const userCart = await this.dao.getDocument({ user: userId });
+    if (!userCart) {
+      return await this.dao.save(userId);
+    }
+    return userCart;
   }
 
   async saveProduct(userId, cartId, product) {
@@ -61,10 +72,10 @@ class CartService extends BaseService {
     let user = await this.userDao.getById(userId);
     let cart = await super.getDocument({ user: userId }, null);
     if (cart === null) {
-      return null;
+      return { success: false, message: "carrito no encontrado" };
     }
     if (cart.productos.length == 0) {
-      return "no hay productos en el carrito";
+      return { success: false, message: "carrito vacio" };
     }
 
     let order = {
@@ -73,7 +84,16 @@ class CartService extends BaseService {
       total: 0,
     };
 
-    cart.productos.forEach((product) => {
+    let outOfStock;
+    for (let index = 0; index < cart.productos.length; index++) {
+      const product = cart.productos[index];
+      let dbProduct = await this.productDao.getById(product.producto._id);
+
+      if (product.cantidad > dbProduct.stock) {
+        outOfStock = dbProduct;
+        break;
+      }
+
       order.productos.push({
         nombre: product.producto.nombre,
         descripcion: product.producto.descripcion,
@@ -83,17 +103,33 @@ class CartService extends BaseService {
         cantidad: product.cantidad,
       });
       order.total += product.cantidad * product.producto.precio;
-    });
 
-    const orderResult = this.orderDao.save(order);
-
-    if ((await super.deleteById(cart.id)) == null) {
-      return null;
+      await this.productDao.updateStock(
+        product.producto._id,
+        dbProduct.stock - product.cantidad
+      );
     }
 
+    if (outOfStock) {
+      return {
+        success: false,
+        message: `no hay stock suficiente del producto: ${outOfStock.nombre}`,
+      };
+    }
+
+    //create order
+    const orderResult = await this.orderDao.save(order);
+    //delete existing cart
+    await super.deleteById(cart.id);
+
+    //send emails
     sendPurchaseMsgToAdmin(user);
     sendPurchaseMsgToUser(user);
-    return orderResult;
+
+    return {
+      success: true,
+      message: `Se genero la orden num: ${orderResult.numeroOrden} por un total de: $${orderResult.total}.`,
+    };
   }
 }
 

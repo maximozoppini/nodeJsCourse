@@ -17,7 +17,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { MatTableModule } from '@angular/material/table';
 
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+const config: SocketIoConfig = {
+  url: 'http://localhost:8080 ',
+  options: {
+    path: '/chat',
+  },
+};
 
 @NgModule({
   declarations: [AppComponent],
