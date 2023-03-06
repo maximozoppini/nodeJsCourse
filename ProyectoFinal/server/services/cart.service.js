@@ -104,10 +104,9 @@ class CartService extends BaseService {
       });
       order.total += product.cantidad * product.producto.precio;
 
-      await this.productDao.updateStock(
-        product.producto._id,
-        dbProduct.stock - product.cantidad
-      );
+      await this.productDao.update(product.producto._id, {
+        stock: dbProduct.stock - product.cantidad,
+      });
     }
 
     if (outOfStock) {
