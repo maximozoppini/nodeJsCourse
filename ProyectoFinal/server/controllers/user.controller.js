@@ -41,7 +41,6 @@ const logout = async (req, res, next) => {
   }
 };
 
-//TODO: ARREGLAR EL LOGIN PORQUE NO DEBERIA EJECUTAR ESO SINO GENERAR UN TOKEN
 const register = async (req, res, next) => {
   try {
     passport.authenticate("register", (error, user, message) => {
@@ -51,12 +50,12 @@ const register = async (req, res, next) => {
       if (!user) {
         return res.status(401).json(message);
       }
-      req.logIn(user, (error) => {
-        if (error) {
-          return next({ message: error });
-        }
-        return res.status(200).json({ message: "exito", user });
-      });
+      if (user) {
+        res.cookie("auth", generateToken(user), {
+          domain: process.env.DOMAIN_NAME,
+        });
+        return res.status(200).json({ message: "exito" });
+      }
     })(req, res, next);
   } catch (error) {
     next(error);
